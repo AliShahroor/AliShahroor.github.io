@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ali Shahroor - NLP &amp; AI Researcher</title>
-  <meta name="description" content="Ali Shahroor, Research Assistant at the Qatar Computing Research Institute (QCRI). Working on multilingual NLP, multimodal AI, content moderation, and AI for education. Published at NAACL, EMNLP, WWW, and WISE." />
+  <meta name="description" content="Ali Shahroor, Research Assistant at the Qatar Computing Research Institute (QCRI). Working on multilingual NLP, multimodal AI, and content moderation. Published at EMNLP, NAACL, and WISE." />
   <meta name="author" content="Ali Shahroor" />
   <meta name="keywords" content="Ali Shahroor, علي شهرور, Ali Ezzat Shahroor, QCRI researcher, NLP, Multimodal AI, HBKU, Data Science, Deep Learning, LlamaLens, MemeIntel, PropXplain, meme detection, Arabic NLP" />
   <link rel="canonical" href="https://alishahroor.github.io/" />
@@ -33,9 +33,9 @@
     "url": "https://alishahroor.github.io/",
     "sameAs": [
       "https://github.com/AliShahroor",
-      "https://scholar.google.com/citations?user=REPLACE_ME",
-      "https://www.linkedin.com/in/REPLACE_ME",
-      "https://huggingface.co/REPLACE_ME"
+      "https://scholar.google.com/citations?user=9D7bdQ4AAAAJ&hl=en",
+      "https://www.linkedin.com/in/alishahroor/",
+      "https://github.com/AliShahroor"
     ],
     "knowsAbout": ["Natural Language Processing", "Multimodal AI", "Content Moderation", "Deep Learning", "Data Science", "Arabic NLP", "Vision-Language Models"]
   }
@@ -43,7 +43,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>" />
 </head>
@@ -78,7 +78,7 @@
       <div class="container hero__inner">
         <div class="hero__photo">
           <div class="hero__photo-glow"></div>
-          <img src="assets/img/profile.jpg" alt="Ali Shahroor" loading="eager" />
+          <div class="photo-frame" role="img" aria-label="Ali Shahroor"></div>
           <ul class="hero__links">
             <li><a data-profile="scholar" href="#" target="_blank" rel="noopener">Google Scholar</a></li>
             <li><a data-profile="github" href="#" target="_blank" rel="noopener">GitHub</a></li>
@@ -182,6 +182,35 @@
   booktitle = {Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing},
   year      = {2025},
   url       = {https://aclanthology.org/2025.emnlp-main.1539/}
+}</pre>
+            </li>
+
+            <li class="pub" data-anim>
+              <h3 class="pub__title">Can Thinking Models Think to Detect Hateful Memes?</h3>
+              <p class="pub__authors">M. B. Kmainasi, M. Kutlu, <b>A. E. Shahroor</b>, A. Hasnat, F. Alam</p>
+              <p class="pub__venue"><span class="badge badge--top">EMNLP 2025</span> Investigating whether reasoning ("thinking") models improve hateful-meme detection.</p>
+              <div class="pub__links">
+                <button class="cite-btn">BibTeX</button>
+              </div>
+              <pre class="bibtex">@inproceedings{kmainasi2025thinking,
+  title     = {Can Thinking Models Think to Detect Hateful Memes?},
+  author    = {Kmainasi, Mohamed Bayan and Kutlu, Mucahid and Shahroor, Ali Ezzat and Hasnat, Abul and Alam, Firoj},
+  booktitle = {Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2025}
+}</pre>
+            </li>
+
+            <li class="pub" data-anim>
+              <h3 class="pub__title">CritiSense: Critical Digital Literacy and Resilience Against Misinformation</h3>
+              <p class="pub__authors">F. Alam, <b>A. E. Shahroor</b>, et al.</p>
+              <p class="pub__venue"><span class="badge">Preprint</span> A system for building critical digital literacy and resilience against misinformation.</p>
+              <div class="pub__links">
+                <button class="cite-btn">BibTeX</button>
+              </div>
+              <pre class="bibtex">@misc{critisense,
+  title  = {CritiSense: Critical Digital Literacy and Resilience Against Misinformation},
+  author = {Alam, Firoj and Shahroor, Ali Ezzat and others},
+  year   = {2026}
 }</pre>
             </li>
 
@@ -473,9 +502,9 @@
   const PROFILE = {
     email:       "a.eshahroor@gmail.com",                 // your public email (from your CV)
     github:      "https://github.com/AliShahroor",         // your GitHub
-    scholar:     "https://scholar.google.com/citations?user=REPLACE_ME",  // <-- your Google Scholar profile URL
-    linkedin:    "https://www.linkedin.com/in/REPLACE_ME",                // <-- your LinkedIn URL
-    huggingface: "https://huggingface.co/REPLACE_ME"                      // <-- your Hugging Face profile URL
+    scholar:     "https://scholar.google.com/citations?user=9D7bdQ4AAAAJ&hl=en",
+    linkedin:    "https://www.linkedin.com/in/alishahroor/",
+    huggingface: "https://huggingface.co/REPLACE_ME"                      // <-- add your Hugging Face profile URL (auto-hidden until set)
   };
 
   (function applyProfileLinks() {
