@@ -176,8 +176,8 @@ h1, h2, h3 { line-height: 1.25; letter-spacing: -0.025em; }
 .hero__photo .photo-frame {
   width: 250px; height: 250px; border-radius: 28px;
   background-image: url('../img/profile.jpeg');
-  background-size: 330%;
-  background-position: 31% 13%;
+  background-size: 270%;
+  background-position: 26% 22%;
   background-repeat: no-repeat;
   box-shadow: var(--shadow-lg); border: 4px solid var(--surface);
   position: relative; z-index: 1;
@@ -194,7 +194,6 @@ h1, h2, h3 { line-height: 1.25; letter-spacing: -0.025em; }
   font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 6px;
   font-weight: 900;
 }
-.hero__name-alt { font-size: 1.3rem; font-weight: 600; color: var(--text-muted); margin-bottom: 20px; }
 .lead { font-size: 1.08rem; color: var(--text); max-width: 64ch; margin-bottom: 16px; }
 .lead--muted { color: var(--text-muted); font-size: 1rem; }
 .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 28px 0 20px; }
@@ -417,6 +416,27 @@ h1, h2, h3 { line-height: 1.25; letter-spacing: -0.025em; }
 }
 [data-anim].in-view { opacity: 1; transform: translateY(0); }
 
+/* ---- Accessibility ---- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.btn:focus-visible, .nav__brand:focus-visible, .theme-toggle:focus-visible {
+  outline-offset: 4px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-anim] { opacity: 1; transform: none; }
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
   .hero__inner { grid-template-columns: 1fr; text-align: center; gap: 32px; }
@@ -454,18 +474,3 @@ h1, h2, h3 { line-height: 1.25; letter-spacing: -0.025em; }
   .pub { padding: 20px; }
   .hero__actions { flex-direction: column; align-items: center; }
 }
-
-/* ---- News / Updates ---- */
-.news { list-style: none; max-width: 760px; }
-.news__item {
-  display: flex; gap: 18px; padding: 16px 0;
-  border-bottom: 1px solid var(--border);
-  align-items: baseline;
-}
-.news__item:last-child { border-bottom: none; }
-.news__date {
-  flex: 0 0 64px; font-weight: 700; color: var(--accent);
-  font-variant-numeric: tabular-nums; font-size: 0.95rem;
-}
-.news__text { color: var(--text); line-height: 1.55; }
-.news__text em { color: var(--text); font-style: italic; }

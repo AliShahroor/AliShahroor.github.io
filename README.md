@@ -3,6 +3,8 @@
 A single-page academic portfolio. Pure HTML/CSS/JS — no build step, no cost.
 Host it free as your GitHub Pages site (see `../DEPLOY.md`).
 
+**Live site:** https://alishahroor.github.io/
+
 ## Edit your details
 
 - **Profile links:** open `index.html`, find the `PROFILE` block near the bottom

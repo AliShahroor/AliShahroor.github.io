@@ -6,14 +6,16 @@
   <title>Ali Shahroor - NLP &amp; AI Researcher</title>
   <meta name="description" content="Ali Shahroor, Research Assistant at the Qatar Computing Research Institute (QCRI). Working on multilingual NLP, multimodal AI, and content moderation. Published at EMNLP, NAACL, and WISE." />
   <meta name="author" content="Ali Shahroor" />
-  <meta name="keywords" content="Ali Shahroor, علي شهرور, Ali Ezzat Shahroor, QCRI researcher, NLP, Multimodal AI, HBKU, Data Science, Deep Learning, LlamaLens, MemeIntel, PropXplain, meme detection, Arabic NLP" />
+  <meta name="keywords" content="Ali Shahroor, Ali Ezzat Shahroor, QCRI researcher, NLP, Multimodal AI, HBKU, Data Science, Deep Learning, LlamaLens, MemeIntel, PropXplain, meme detection, Arabic NLP" />
   <link rel="canonical" href="https://alishahroor.github.io/" />
 
   <meta property="og:title" content="Ali Shahroor - NLP &amp; AI Researcher" />
   <meta property="og:description" content="Research Assistant at QCRI. Working on multilingual NLP, multimodal AI, content moderation, and AI for education." />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://alishahroor.github.io/" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://alishahroor.github.io/Profile.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://alishahroor.github.io/Profile.jpeg" />
 
   <script type="application/ld+json">
   {
@@ -22,7 +24,7 @@
     "name": "Ali Shahroor",
     "givenName": "Ali",
     "familyName": "Shahroor",
-    "alternateName": ["Ali Ezzat Shahroor", "علي شهرور", "A. E. Shahroor"],
+    "alternateName": ["Ali Ezzat Shahroor", "A. E. Shahroor"],
     "jobTitle": "Research Assistant in NLP and AI",
     "worksFor": { "@type": "Organization", "name": "Qatar Computing Research Institute (QCRI)" },
     "alumniOf": [
@@ -57,7 +59,6 @@
       <a href="#top" class="nav__brand">AS</a>
       <nav class="nav__links" id="navLinks">
         <a href="#about">About</a>
-        <a href="#news">News</a>
         <a href="#publications">Publications</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
@@ -91,7 +92,6 @@
         <div class="hero__text">
           <p class="eyebrow">Research Assistant &middot; QCRI</p>
           <h1>Ali Shahroor</h1>
-          <p class="hero__name-alt" lang="ar" dir="rtl">علي شهرور</p>
           <p class="lead">
             I'm a Research Assistant at the
             <a href="https://www.hbku.edu.qa/en/qcri" target="_blank" rel="noopener">Qatar Computing Research Institute (QCRI)</a>,
@@ -153,38 +153,13 @@
       </div>
     </section>
 
-    <!-- News / Updates  (edit dates & add items freely) -->
-    <section class="section" id="news">
-      <div class="container">
-        <h2 class="section__title">News</h2>
-        <ol class="news">
-          <li class="news__item" data-anim>
-            <span class="news__date">2025</span>
-            <span class="news__text">Presented our poster <em>&ldquo;Can Thinking Models Think to Detect Hateful Memes?&rdquo;</em> at <b>EMNLP 2025</b>.</span>
-          </li>
-          <li class="news__item" data-anim>
-            <span class="news__date">2025</span>
-            <span class="news__text"><em>MemeIntel</em> accepted to <b>EMNLP 2025</b> (main) and <em>PropXplain</em> to <b>Findings of EMNLP 2025</b>.</span>
-          </li>
-          <li class="news__item" data-anim>
-            <span class="news__date">2025</span>
-            <span class="news__text"><em>LlamaLens</em> appeared in <b>Findings of NAACL 2025</b>.</span>
-          </li>
-          <li class="news__item" data-anim>
-            <span class="news__date">2024</span>
-            <span class="news__text">Presented <em>Native vs Non-Native Language Prompting</em> at <b>WISE 2024</b>.</span>
-          </li>
-        </ol>
-      </div>
-    </section>
-
     <!-- Publications -->
     <section class="section section--alt" id="publications">
       <div class="container">
         <h2 class="section__title">Publications</h2>
         <p class="section__intro">
           Selected papers. Full list on my
-          <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a> profile.
+          <a href="https://scholar.google.com/citations?user=9D7bdQ4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> profile.
         </p>
 
         <!-- 2025 -->
@@ -584,6 +559,23 @@
     });
   });
 
+  /* ---- Click any BibTeX block to copy it ---- */
+  document.querySelectorAll('.bibtex').forEach(pre => {
+    pre.title = 'Click to copy';
+    pre.style.cursor = 'copy';
+    pre.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(pre.textContent.trim());
+        const btn = pre.closest('.pub').querySelector('.cite-btn');
+        if (btn) {
+          const prev = btn.textContent;
+          btn.textContent = 'Copied ✓';
+          setTimeout(() => { btn.textContent = prev; }, 1500);
+        }
+      } catch (e) { /* clipboard unavailable — ignore */ }
+    });
+  });
+
   /* ---- Scroll Animations ---- */
   const animEls = document.querySelectorAll('[data-anim]');
   const obs = new IntersectionObserver((entries) => {
@@ -591,17 +583,22 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   animEls.forEach(el => obs.observe(el));
 
-  /* ---- Active Nav Highlight ---- */
+  /* ---- Active Nav Highlight (rAF-throttled) ---- */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav__links a');
-  window.addEventListener('scroll', () => {
+  let ticking = false;
+  function updateActiveNav() {
     let current = '';
     sections.forEach(s => { if (scrollY >= s.offsetTop - 120) current = s.id; });
     navLinks.forEach(a => {
-      a.classList.remove('active');
-      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
-  });
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(updateActiveNav); ticking = true; }
+  }, { passive: true });
+  updateActiveNav();
   </script>
 </body>
 </html>
