@@ -13,9 +13,9 @@
   <meta property="og:description" content="Research Assistant at QCRI. Working on multilingual NLP, multimodal AI, content moderation, and AI for education." />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://alishahroor.github.io/" />
-  <meta property="og:image" content="https://alishahroor.github.io/Profile.jpeg" />
+  <meta property="og:image" content="https://alishahroor.github.io/assets/img/profile.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://alishahroor.github.io/Profile.jpeg" />
+  <meta name="twitter:image" content="https://alishahroor.github.io/assets/img/profile.jpeg" />
 
   <script type="application/ld+json">
   {
@@ -45,7 +45,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>" />
 </head>
@@ -69,7 +69,7 @@
           <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <button class="nav__burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
@@ -80,7 +80,7 @@
       <div class="container hero__inner">
         <div class="hero__photo">
           <div class="hero__photo-glow"></div>
-          <div class="photo-frame" role="img" aria-label="Ali Shahroor"></div>
+          <img class="photo-frame" src="assets/img/profile.jpeg" alt="Ali Shahroor" width="250" height="250" />
           <ul class="hero__links">
             <li><a data-profile="scholar" href="#" target="_blank" rel="noopener">Google Scholar</a></li>
             <li><a data-profile="github" href="#" target="_blank" rel="noopener">GitHub</a></li>
@@ -104,7 +104,7 @@
             <a href="https://www.hbku.edu.qa/" target="_blank" rel="noopener">Hamad Bin Khalifa University (HBKU)</a>,
             after earning a First Class Honours BSc in Computer Science and Mathematics from
             Liverpool John Moores University. Having lived in China for 15 years,
-            I bring a global perspective to my research. My work has appeared at NAACL, EMNLP, WWW, and WISE.
+            I bring a global perspective to my research. My work has appeared at NAACL, EMNLP, and WISE.
           </p>
 
           <div class="hero__actions">
@@ -175,7 +175,7 @@
                 <a href="https://arxiv.org/abs/2502.16612" target="_blank" rel="noopener">arXiv</a>
                 <a href="https://github.com/MohamedBayan/MemeIntel" target="_blank" rel="noopener">Code</a>
                 <a href="https://huggingface.co/datasets/QCRI/MemeXplain" target="_blank" rel="noopener">Dataset</a>
-                <button class="cite-btn">BibTeX</button>
+                <button class="cite-btn" aria-expanded="false">BibTeX</button>
               </div>
               <pre class="bibtex">@inproceedings{kmainasi2025memeintel,
   title     = {MemeIntel: Explainable Detection of Propagandistic and Hateful Memes},
@@ -187,35 +187,6 @@
             </li>
 
             <li class="pub" data-anim>
-              <h3 class="pub__title">Can Thinking Models Think to Detect Hateful Memes?</h3>
-              <p class="pub__authors">M. B. Kmainasi, M. Kutlu, <b>A. E. Shahroor</b>, A. Hasnat, F. Alam</p>
-              <p class="pub__venue"><span class="badge badge--top">EMNLP 2025</span> Investigating whether reasoning ("thinking") models improve hateful-meme detection.</p>
-              <div class="pub__links">
-                <button class="cite-btn">BibTeX</button>
-              </div>
-              <pre class="bibtex">@inproceedings{kmainasi2025thinking,
-  title     = {Can Thinking Models Think to Detect Hateful Memes?},
-  author    = {Kmainasi, Mohamed Bayan and Kutlu, Mucahid and Shahroor, Ali Ezzat and Hasnat, Abul and Alam, Firoj},
-  booktitle = {Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
-  year      = {2025}
-}</pre>
-            </li>
-
-            <li class="pub" data-anim>
-              <h3 class="pub__title">CritiSense: Critical Digital Literacy and Resilience Against Misinformation</h3>
-              <p class="pub__authors">F. Alam, <b>A. E. Shahroor</b>, et al.</p>
-              <p class="pub__venue"><span class="badge">Preprint</span> A system for building critical digital literacy and resilience against misinformation.</p>
-              <div class="pub__links">
-                <button class="cite-btn">BibTeX</button>
-              </div>
-              <pre class="bibtex">@misc{critisense,
-  title  = {CritiSense: Critical Digital Literacy and Resilience Against Misinformation},
-  author = {Alam, Firoj and Shahroor, Ali Ezzat and others},
-  year   = {2026}
-}</pre>
-            </li>
-
-            <li class="pub" data-anim>
               <h3 class="pub__title">PropXplain: Can LLMs Enable Explainable Propaganda Detection?</h3>
               <p class="pub__authors">M. Hasanain, M. A. Hasan, M. B. Kmainasi, E. Sartori, <b>A. E. Shahroor</b>, G. Da San Martino, F. Alam</p>
               <p class="pub__venue"><span class="badge badge--top">EMNLP 2025 Findings</span> Using LLMs to make propaganda detection explainable.</p>
@@ -223,7 +194,7 @@
                 <a href="https://aclanthology.org/2025.findings-emnlp.1296/" target="_blank" rel="noopener">ACL Anthology</a>
                 <a href="https://arxiv.org/abs/2502.16550" target="_blank" rel="noopener">arXiv</a>
                 <a href="https://huggingface.co/datasets/QCRI/PropXplain" target="_blank" rel="noopener">Dataset</a>
-                <button class="cite-btn">BibTeX</button>
+                <button class="cite-btn" aria-expanded="false">BibTeX</button>
               </div>
               <pre class="bibtex">@inproceedings{hasanain2025propxplain,
   title     = {PropXplain: Can LLMs Enable Explainable Propaganda Detection?},
@@ -243,7 +214,7 @@
                 <a href="https://arxiv.org/abs/2410.15308" target="_blank" rel="noopener">arXiv</a>
                 <a href="https://huggingface.co/QCRI/LlamaLens" target="_blank" rel="noopener">Model</a>
                 <a href="https://huggingface.co/datasets/QCRI/LlamaLens-English" target="_blank" rel="noopener">Dataset</a>
-                <button class="cite-btn">BibTeX</button>
+                <button class="cite-btn" aria-expanded="false">BibTeX</button>
               </div>
               <pre class="bibtex">@inproceedings{kmainasi2025llamalens,
   title     = {LlamaLens: Specialized Multilingual LLM for Analyzing News and Social Media Content},
@@ -276,7 +247,7 @@
               <div class="pub__links">
                 <a href="https://link.springer.com/chapter/10.1007/978-981-96-0576-7_30" target="_blank" rel="noopener">Springer</a>
                 <a href="https://arxiv.org/abs/2409.07054" target="_blank" rel="noopener">arXiv</a>
-                <button class="cite-btn">BibTeX</button>
+                <button class="cite-btn" aria-expanded="false">BibTeX</button>
               </div>
               <pre class="bibtex">@inproceedings{kmainasi2024native,
   title     = {Native vs Non-Native Language Prompting: A Comparative Analysis},
@@ -302,7 +273,7 @@
               <li class="timeline__item" data-anim>
                 <div class="timeline__top"><span class="timeline__role">Research Assistant</span><span class="timeline__date">Feb 2025 &ndash; Present</span></div>
                 <div class="timeline__org">Qatar Computing Research Institute (QCRI)</div>
-                <p class="timeline__desc">Co-developing EduLens, an AI-driven platform for HBKU enabling LLM-assisted assignment submissions and analytics. Conducting research on LLMs with emphasis on multilingual capabilities, with papers at EMNLP, NAACL, WWW, and WISE.</p>
+                <p class="timeline__desc">Co-developing EduLens, an AI-driven platform for HBKU enabling LLM-assisted assignment submissions and analytics. Conducting research on LLMs with emphasis on multilingual capabilities, with papers at EMNLP, NAACL, and WISE.</p>
               </li>
               <li class="timeline__item" data-anim>
                 <div class="timeline__top"><span class="timeline__role">Research Intern</span><span class="timeline__date">May 2024 &ndash; Feb 2025</span></div>
@@ -503,7 +474,7 @@
   <script>
   /* =========================================================================
      EDIT YOUR LINKS HERE — this is the ONLY place you need to change them.
-     Replace the placeholder values below with your real profile URLs.
+     Update the profile URLs below when needed.
      Every "Google Scholar / LinkedIn / Hugging Face / Email" link on the page
      is generated from this single object.
      ========================================================================= */
@@ -512,7 +483,7 @@
     github:      "https://github.com/AliShahroor",         // your GitHub
     scholar:     "https://scholar.google.com/citations?user=9D7bdQ4AAAAJ&hl=en",
     linkedin:    "https://www.linkedin.com/in/alishahroor/",
-    huggingface: "https://huggingface.co/REPLACE_ME"                      // <-- add your Hugging Face profile URL (auto-hidden until set)
+    huggingface: "https://huggingface.co/QCRI"
   };
 
   (function applyProfileLinks() {
@@ -524,7 +495,7 @@
         return;
       }
       // Hide links that haven't been filled in yet, so nothing is broken on the page.
-      if (!val || val.indexOf('REPLACE_ME') !== -1) {
+      if (!val) {
         const host = el.closest('li') || el;
         host.style.display = 'none';
         return;
@@ -551,10 +522,12 @@
   burger.addEventListener('click', () => {
     links.classList.toggle('open');
     burger.classList.toggle('open');
+    burger.setAttribute('aria-expanded', links.classList.contains('open') ? 'true' : 'false');
   });
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     links.classList.remove('open');
     burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
   }));
 
   /* ---- BibTeX Toggle ---- */
@@ -562,7 +535,9 @@
     btn.addEventListener('click', () => {
       const bib = btn.closest('.pub').querySelector('.bibtex');
       bib.classList.toggle('show');
-      btn.textContent = bib.classList.contains('show') ? 'Hide BibTeX' : 'BibTeX';
+      const isOpen = bib.classList.contains('show');
+      btn.textContent = isOpen ? 'Hide BibTeX' : 'BibTeX';
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   });
 

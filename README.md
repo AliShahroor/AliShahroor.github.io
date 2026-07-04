@@ -8,10 +8,10 @@ Host it free as your GitHub Pages site (see `../DEPLOY.md`).
 ## Edit your details
 
 - **Profile links:** open `index.html`, find the `PROFILE` block near the bottom
-  (inside `<script>`), and replace the `REPLACE_ME` values for Google Scholar,
-  LinkedIn, and Hugging Face. Every link on the page reads from this one object.
+  (inside `<script>`), and update Google Scholar, LinkedIn, GitHub, Hugging Face,
+  or email in one place. Every link on the page reads from this one object.
 - **CV:** replace `CV.pdf` with your latest file (keep the name `CV.pdf`).
-- **Photo:** replace `assets/img/profile.jpg`.
+- **Photo:** replace `assets/img/profile.jpeg`.
 
 ## What's on the page
 
@@ -42,5 +42,5 @@ If any detail here is wrong, edit `index.html` (the Publications section).
 |------|---------|
 | `index.html` | The whole page + inline script. |
 | `assets/css/style.css` | Styling. |
-| `assets/img/profile.jpg` | Your photo. |
+| `assets/img/profile.jpeg` | Your photo. |
 | `CV.pdf` | Your downloadable CV. |
