@@ -15,26 +15,19 @@ Host it free as your GitHub Pages site (see `../DEPLOY.md`).
 
 ## What's on the page
 
-Hero/bio · stats · research areas · **publications** (only your 5 real,
-CV-verified papers) · experience & education timeline · certifications · awards ·
-languages · projects · skills · contact. Includes a dark/light theme toggle and
-scroll animations.
+Hero/bio · stats · research areas · selected publications · paper summaries ·
+experience & education timeline · certifications · awards · languages · projects ·
+skills · contact. Includes a dark/light theme toggle and scroll animations.
 
-## ⚠️ Integrity note
+## Publications note
 
-An earlier version of this page listed several **publications that were not in
-your CV and appear fabricated** (e.g. a "MemeLens" ACL 2026 paper, a WWW 2026
-paper, and "CritiSense", with invented arXiv IDs). Those were **removed** — a
-public academic page with fake papers is a serious reputational risk. The page
-now lists only the five real publications from your CV:
+The page has two publication areas:
 
-1. **MemeIntel** — EMNLP 2025
-2. **PropXplain** — Findings of EMNLP 2025
-3. **LlamaLens** — Findings of NAACL 2025
-4. **Native vs Non-Native Language Prompting** — WISE 2024
-5. **EverydayMMQA** — preprint
+- **Selected Publications:** compact citation-style entries with BibTeX where available.
+- **Paper Summaries:** short plain-language summaries based on the PDFs in
+  `/Users/alishahrour/Desktop/Personal/My_Papers`.
 
-If any detail here is wrong, edit `index.html` (the Publications section).
+If any detail here is wrong, edit `index.html` in the Publications section.
 
 ## Files
 
