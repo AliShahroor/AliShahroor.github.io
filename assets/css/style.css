@@ -290,6 +290,12 @@ h1, h2, h3 { line-height: 1.25; letter-spacing: -0.025em; }
 .pub__authors { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 8px; }
 .pub__authors b { color: var(--accent-strong); font-weight: 700; }
 .pub__venue { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 14px; }
+.pub__summary {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
 .badge {
   display: inline-block; font-size: 0.76rem; font-weight: 700; padding: 3px 10px;
   border-radius: 6px; background: var(--badge-bg); color: var(--badge-text);
@@ -313,56 +319,6 @@ h1, h2, h3 { line-height: 1.25; letter-spacing: -0.025em; }
   overflow-x: auto; white-space: pre; color: var(--text-muted);
 }
 .bibtex.show { display: block; animation: slideDown 0.3s ease; }
-
-.paper-summaries {
-  margin-top: 52px;
-}
-.paper-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-.paper-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 22px;
-  transition: all 0.25s ease;
-}
-.paper-card:hover {
-  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
-  box-shadow: var(--shadow);
-  transform: translateY(-2px);
-}
-.paper-card--featured {
-  grid-column: 1 / -1;
-  background:
-    linear-gradient(var(--surface), var(--surface)) padding-box,
-    var(--gradient) border-box;
-  border-color: transparent;
-}
-.paper-card__top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 10px;
-}
-.paper-card h3 {
-  font-size: 1rem;
-  font-weight: 750;
-  letter-spacing: 0;
-}
-.paper-card p {
-  color: var(--text-muted);
-  font-size: 0.92rem;
-  line-height: 1.65;
-  margin-bottom: 14px;
-}
-.paper-card .badge {
-  flex: 0 0 auto;
-  margin: 0;
-}
 
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-8px); }
@@ -497,7 +453,6 @@ h1, h2, h3 { line-height: 1.25; letter-spacing: -0.025em; }
   .cards { grid-template-columns: 1fr; }
   .cards--projects { grid-template-columns: repeat(2, 1fr); }
   .card--featured-project { grid-column: span 2; }
-  .paper-list { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; gap: 48px; }
   .skills-grid { grid-template-columns: 1fr; }
   .contact { grid-template-columns: repeat(2, 1fr); }
@@ -525,6 +480,5 @@ h1, h2, h3 { line-height: 1.25; letter-spacing: -0.025em; }
   .card--featured-project { grid-column: auto; }
   .contact { grid-template-columns: 1fr; }
   .pub { padding: 20px; }
-  .paper-card__top { flex-direction: column; gap: 8px; }
   .hero__actions { flex-direction: column; align-items: center; }
 }

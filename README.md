@@ -15,17 +15,16 @@ Host it free as your GitHub Pages site (see `../DEPLOY.md`).
 
 ## What's on the page
 
-Hero/bio · stats · research areas · selected publications · paper summaries ·
-experience & education timeline · certifications · awards · languages · projects ·
-skills · contact. Includes a dark/light theme toggle and scroll animations.
+Hero/bio · stats · research areas · publications with summaries · experience &
+education timeline · certifications · awards · languages · projects · skills · contact.
+Includes a dark/light theme toggle and scroll animations.
 
 ## Publications note
 
-The page has two publication areas:
-
-- **Selected Publications:** compact citation-style entries with BibTeX where available.
-- **Paper Summaries:** short plain-language summaries based on the PDFs in
-  `/Users/alishahrour/Desktop/Personal/My_Papers`.
+The Publications section combines citation-style entries, venue/year metadata,
+Google Scholar citation counts, links, BibTeX where available, and short
+plain-language summaries based on the PDFs in
+`/Users/alishahrour/Desktop/Personal/My_Papers`.
 
 If any detail here is wrong, edit `index.html` in the Publications section.
 
