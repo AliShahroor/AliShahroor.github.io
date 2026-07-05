@@ -162,11 +162,23 @@
           <a href="https://scholar.google.com/citations?user=9D7bdQ4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> profile.
         </p>
 
+        <div class="pub-filters" aria-label="Filter publications">
+          <button class="filter-btn active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="2026">2026</button>
+          <button class="filter-btn" type="button" data-filter="2025">2025</button>
+          <button class="filter-btn" type="button" data-filter="2024">2024</button>
+          <button class="filter-btn" type="button" data-filter="conference">Conference</button>
+          <button class="filter-btn" type="button" data-filter="preprint">Preprint</button>
+          <button class="filter-btn" type="button" data-filter="multimodal">Multimodal</button>
+          <button class="filter-btn" type="button" data-filter="media-literacy">Media Literacy</button>
+        </div>
+        <p class="pub-filter-empty" id="pubFilterEmpty">No publications match this filter yet.</p>
+
         <!-- 2026 -->
         <div class="pub-group">
           <h3 class="pub-group__year">2026</h3>
           <ol class="pubs">
-            <li class="pub" data-anim>
+            <li class="pub" data-anim data-filters="2026 conference media-literacy misinformation app">
               <h3 class="pub__title">CritiSense: Critical Digital Literacy and Resilience Against Misinformation</h3>
               <p class="pub__authors">F. Alam, F. Ahmad, <b>A. E. Shahroor</b>, M. B. Kmainasi, E. Sartori, G. Da San Martino, A. Hasnat, R. Ali</p>
               <p class="pub__venue"><span class="badge badge--top">ACL Demo 2026</span> Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics, System Demonstrations, pages 481-492.</p>
@@ -190,7 +202,7 @@
 }</pre>
             </li>
 
-            <li class="pub" data-anim>
+            <li class="pub" data-anim data-filters="2026 preprint multimodal memes vlm">
               <h3 class="pub__title">MemeLens: Multilingual Multitask VLMs for Memes</h3>
               <p class="pub__authors"><b>A. E. Shahroor</b>, M. B. Kmainasi, A. Hasnat, D. Dimitrov, G. Da San Martino, P. Nakov, F. Alam</p>
               <p class="pub__venue"><span class="badge">arXiv 2026</span> <span class="badge">1 citation</span> arXiv:2601.12539.</p>
@@ -202,7 +214,7 @@
               </div>
             </li>
 
-            <li class="pub" data-anim>
+            <li class="pub" data-anim data-filters="2026 conference multimodal memes hate-speech">
               <h3 class="pub__title">Can Thinking Models Think to Detect Hateful Memes?</h3>
               <p class="pub__authors">M. B. Kmainasi, M. Kutlu, <b>A. E. Shahroor</b>, A. Hasnat, F. Alam</p>
               <p class="pub__venue"><span class="badge badge--top">WWW Companion 2026</span> Companion Proceedings of the ACM Web Conference 2026, pages 935-944.</p>
@@ -212,7 +224,7 @@
               </div>
             </li>
 
-            <li class="pub" data-anim>
+            <li class="pub" data-anim data-filters="2026 preprint multimodal memes hate-speech">
               <h3 class="pub__title">Adapting Reinforcement Learning with Chain-of-Thought Supervision for Explainable Detection of Hateful and Propagandistic Memes</h3>
               <p class="pub__authors">M. B. Kmainasi, M. Kutlu, <b>A. E. Shahroor</b>, A. Hasnat, F. Alam</p>
               <p class="pub__venue"><span class="badge">arXiv 2026</span> arXiv:2606.15307.</p>
@@ -229,7 +241,7 @@
         <div class="pub-group">
           <h3 class="pub-group__year">2025</h3>
           <ol class="pubs">
-            <li class="pub" data-anim>
+            <li class="pub" data-anim data-filters="2025 conference media-literacy misinformation propaganda">
               <h3 class="pub__title">PropXplain: Can LLMs Enable Explainable Propaganda Detection?</h3>
               <p class="pub__authors">M. Hasanain, M. A. Hasan, M. B. Kmainasi, E. Sartori, <b>A. E. Shahroor</b>, G. Da San Martino, F. Alam</p>
               <p class="pub__venue"><span class="badge badge--top">EMNLP 2025 Findings</span> <span class="badge">13 citations</span> Explanation-enhanced propaganda detection in Arabic and English.</p>
@@ -249,7 +261,7 @@
 }</pre>
             </li>
 
-            <li class="pub" data-anim>
+            <li class="pub" data-anim data-filters="2025 conference multimodal memes hate-speech propaganda">
               <h3 class="pub__title">MemeIntel: Explainable Detection of Propagandistic and Hateful Memes</h3>
               <p class="pub__authors">M. B. Kmainasi, A. Hasnat, M. A. Hasan, <b>A. E. Shahroor</b>, F. Alam</p>
               <p class="pub__venue"><span class="badge badge--top">EMNLP 2025</span> <span class="badge">12 citations</span> Explainable multimodal detection with the MemeXplain dataset.</p>
@@ -270,7 +282,7 @@
 }</pre>
             </li>
 
-            <li class="pub" data-anim>
+            <li class="pub" data-anim data-filters="2025 preprint legal llm arabic">
               <h3 class="pub__title">Can Large Language Models Predict the Outcome of Judicial Decisions?</h3>
               <p class="pub__authors">M. B. Kmainasi, <b>A. E. Shahroor</b>, A. Al-Ghraibah</p>
               <p class="pub__venue"><span class="badge">arXiv 2025</span> <span class="badge">6 citations</span> arXiv:2501.09768.</p>
@@ -281,7 +293,7 @@
               </div>
             </li>
 
-            <li class="pub" data-anim>
+            <li class="pub" data-anim data-filters="2025 preprint multimodal vqa arabic">
               <h3 class="pub__title">EverydayMMQA: A Multilingual and Multimodal Framework for Culturally Grounded Spoken Visual QA</h3>
               <p class="pub__authors">F. Alam, <b>A. E. Shahroor</b>, M. A. Hasan, Z. S. Ali, H. H. Bhatti, M. B. Kmainasi, et al.</p>
               <p class="pub__venue"><span class="badge">arXiv 2025</span> <span class="badge">1 citation</span> arXiv:2510.06371.</p>
@@ -298,7 +310,7 @@
         <div class="pub-group">
           <h3 class="pub-group__year">2024</h3>
           <ol class="pubs">
-            <li class="pub" data-anim>
+            <li class="pub" data-anim data-filters="2024 conference arabic prompting llm">
               <h3 class="pub__title">Native vs Non-Native Language Prompting: A Comparative Analysis</h3>
               <p class="pub__authors">M. B. Kmainasi, R. Khan, <b>A. E. Shahroor</b>, B. Bendou, M. Hasanain, F. Alam</p>
               <p class="pub__venue"><span class="badge badge--top">WISE 2024</span> <span class="badge">20 citations</span> International Conference on Web Information Systems Engineering, pages 406-420.</p>
@@ -318,7 +330,7 @@
 }</pre>
             </li>
 
-            <li class="pub" data-anim>
+            <li class="pub" data-anim data-filters="2024 conference media-literacy multilingual llm">
               <h3 class="pub__title">LlamaLens: Specialized Multilingual LLM for Analyzing News and Social Media Content</h3>
               <p class="pub__authors">M. B. Kmainasi, <b>A. E. Shahroor</b>, M. Hasanain, S. R. Laskar, N. Hassan, F. Alam</p>
               <p class="pub__venue"><span class="badge badge--top">NAACL 2025 Findings</span> <span class="badge">17 citations</span> Findings of ACL: NAACL 2025, pages 5627-5649.</p>
@@ -615,6 +627,34 @@
     burger.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
   }));
+
+  /* ---- Publication Filters ---- */
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const publications = document.querySelectorAll('.pub');
+  const publicationGroups = document.querySelectorAll('.pub-group');
+  const filterEmpty = document.getElementById('pubFilterEmpty');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selected = btn.dataset.filter;
+      filterButtons.forEach(item => item.classList.toggle('active', item === btn));
+
+      let visibleCount = 0;
+      publications.forEach(pub => {
+        const filters = (pub.dataset.filters || '').split(/\s+/);
+        const isVisible = selected === 'all' || filters.includes(selected);
+        pub.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      publicationGroups.forEach(group => {
+        const hasVisiblePaper = Array.from(group.querySelectorAll('.pub')).some(pub => !pub.hidden);
+        group.classList.toggle('hidden', !hasVisiblePaper);
+      });
+
+      if (filterEmpty) filterEmpty.classList.toggle('show', visibleCount === 0);
+    });
+  });
 
   /* ---- BibTeX Toggle ---- */
   document.querySelectorAll('.cite-btn').forEach(btn => {

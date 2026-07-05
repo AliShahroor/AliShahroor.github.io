@@ -270,7 +270,43 @@ h1, h2, h3 { line-height: 1.25; letter-spacing: -0.025em; }
 .card--project .pub__links { margin-top: auto; }
 
 /* ---- Publications ---- */
+.pub-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -8px 0 28px;
+}
+.filter-btn {
+  min-height: 34px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+.pub-filter-empty {
+  display: none;
+  padding: 18px 20px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  background: var(--surface);
+  font-size: 0.94rem;
+}
+.pub-filter-empty.show { display: block; }
 .pub-group { margin-bottom: 36px; }
+.pub-group.hidden { display: none; }
 .pub-group__year {
   font-size: 1.6rem; font-weight: 900; margin-bottom: 20px;
   color: transparent; background: var(--gradient);
