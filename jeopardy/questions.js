@@ -220,7 +220,7 @@ const QUESTION_BANK = {
     { q: "This yellow circle eats dots and avoids ghosts named Blinky, Pinky, Inky, and Clyde.", a: "Pac-Man", points: 800, type: "text" },
     { q: "This 2009 FromSoftware game launched the 'Souls' genre.", a: "Demon's Souls", points: 800, type: "text" },
     { q: "In Final Fantasy VII, this spiky-haired ex-SOLDIER is the protagonist.", a: "Cloud Strife", points: 800, type: "text" },
-    { q: "This Valve game features a player using a portal gun, guided by the AI GLaDOS.", a: "Portal", points: 800, type: "text" },
+    { q: "This Valve puzzle game features a player using linked gateways, guided by the AI GLaDOS.", a: "Portal", points: 800, type: "text" },
     { q: "Super Mario Bros. debuted in 1985 on this Nintendo home console.", a: "Nintendo Entertainment System (NES)", points: 800, type: "text" },
     { q: "This Japanese designer created The Legend of Zelda and Super Mario Bros. for Nintendo.", a: "Shigeru Miyamoto", points: 1000, type: "text" },
     { q: "This influential 1962 game, often called the first true video game, was created by Steve Russell and team at MIT.", a: "Spacewar!", points: 1000, type: "text" },
@@ -230,7 +230,7 @@ const QUESTION_BANK = {
   ],
 
   "Anime & Manga": [
-    { q: "This ninja-themed anime follows a boy named Naruto Uzumaki.", a: "Naruto", points: 200, type: "text" },
+    { q: "This ninja-themed anime follows a boy who dreams of becoming Hokage.", a: "Naruto", points: 200, type: "text" },
     { q: "In Dragon Ball, this Saiyan protagonist with spiky hair seeks the dragon balls.", a: "Goku", points: 200, type: "text" },
     { q: "This anime and manga features pirates and a hero named Monkey D. Luffy.", a: "One Piece", points: 200, type: "text" },
     { q: "This series features humans fighting giant humanoid Titans behind walls.", a: "Attack on Titan", points: 200, type: "text" },
@@ -357,13 +357,13 @@ const QUESTION_BANK = {
     { q: "This grumpy-faced cat named Tardar Sauce became a beloved meme around 2012.", a: "Grumpy Cat", points: 600, type: "text" },
     { q: "This anonymous imageboard, founded in 2003, was an early source of many internet memes.", a: "4chan", points: 600, type: "text" },
     { q: "This acronym for 'fear of missing out' describes anxiety from seeing others' online activities.", a: "FOMO", points: 600, type: "text" },
-    { q: "This dancing baby animation, spread via email in the mid-1990s, is considered one of the first viral memes.", a: "Dancing Baby", points: 800, type: "text" },
+    { q: "This mid-1990s viral animation featured an infant doing a cha-cha style dance.", a: "Dancing Baby", points: 800, type: "text" },
     { q: "This term refers to a block of text copied and pasted repeatedly across the internet.", a: "Copypasta", points: 800, type: "text" },
-    { q: "This website, calling itself 'the front page of the internet', is organized into communities called subreddits.", a: "Reddit", points: 800, type: "text" },
+    { q: "This social news site is organized into topic-based communities and uses upvotes heavily.", a: "Reddit", points: 800, type: "text" },
     { q: "This 2000s meme phrase, from a mistranslated game, declared 'All your base are belong to' this word.", a: "Us", points: 800, type: "text" },
     { q: "This AOL instant-messaging service of the 1990s and 2000s was abbreviated this way.", a: "AIM", points: 800, type: "text" },
     { q: "This 2010s meme format shows a man looking back at another woman while with his partner; it is called 'Distracted' this.", a: "Boyfriend", points: 1000, type: "text" },
-    { q: "This early lolcats site paired cat photos with intentionally misspelled captions like 'I Can Has' this food.", a: "Cheezburger", points: 1000, type: "text" },
+    { q: "This early lolcats site paired photos with intentionally misspelled captions like 'I Can Has' followed by a food item.", a: "Cheezburger", points: 1000, type: "text" },
     { q: "A 1993 New Yorker cartoon coined the phrase 'On the internet, nobody knows you're a' this animal.", a: "Dog", points: 1000, type: "text" },
     { q: "This green frog character became a widespread reaction meme.", a: "Pepe (the Frog)", points: 1000, type: "text" },
     { q: "This blogging platform, launched in 2007 and known for short posts and GIFs, was acquired by Yahoo in 2013.", a: "Tumblr", points: 1000, type: "text" }
@@ -407,7 +407,7 @@ const QUESTION_BANK = {
     { q: "This Hindu and Buddhist concept refers to the cycle of action and consequence.", a: "Karma", points: 400, type: "text" },
     { q: "This annual Muslim pilgrimage to Mecca is one of the Five Pillars of Islam.", a: "Hajj", points: 400, type: "text" },
     { q: "This first book of the Hebrew Bible and Christian Old Testament describes creation.", a: "Genesis", points: 400, type: "text" },
-    { q: "This Sikh place of worship is also called a gurdwara.", a: "Gurdwara", points: 400, type: "text" },
+    { q: "This Sikh place of worship often includes a community kitchen called langar.", a: "Gurdwara", points: 400, type: "text" },
     { q: "This Hindu festival of lights is celebrated in autumn.", a: "Diwali", points: 600, type: "text" },
     { q: "This Jewish house of worship is also a center for study and community.", a: "Synagogue", points: 600, type: "text" },
     { q: "This month of fasting from dawn to sunset is observed by Muslims.", a: "Ramadan", points: 600, type: "text" },
@@ -669,8 +669,7 @@ if (typeof ENRICH_QUESTIONS !== 'undefined') {
     if (!QUESTION_BANK[cat]) QUESTION_BANK[cat] = [];
     const seen = new Set(QUESTION_BANK[cat].map(q => (q.q || '').toLowerCase().trim()));
     ENRICH_QUESTIONS[cat].forEach(q => {
-      let key = (q.q || '').toLowerCase().trim();
-      if (q.source === 'supplemental-variant' && q.variantId) key += `__${q.variantId}`;
+      const key = (q.q || '').toLowerCase().trim();
       if (!seen.has(key)) { QUESTION_BANK[cat].push(q); seen.add(key); }
     });
   });
@@ -699,8 +698,7 @@ if (typeof ENRICH_QUESTIONS !== 'undefined') {
         if (aKey) seenImg.add(aKey);
         return true;
       }
-      let qKey = (q.q || '').toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
-      if (q.source === 'supplemental-variant' && q.variantId) qKey += `__${q.variantId}`;
+      const qKey = (q.q || '').toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
       if (qKey && seenGlobalQ.has(qKey) && keepTier()) { tierCount[q.points]--; return false; }
       if (qKey) seenGlobalQ.add(qKey);
       return true;

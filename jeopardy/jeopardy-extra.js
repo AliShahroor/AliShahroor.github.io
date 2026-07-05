@@ -5,7 +5,7 @@
 const EXTRA_QUESTIONS = {
   "General Knowledge": [
     { q: "What is the study of fungi called?", a: "Mycology", points: 600, type: "text" },
-    { q: "Which vitamin does the human body produce when exposed to sunlight?", a: "Vitamin D", points: 600, type: "text" },
+    { q: "Which nutrient does the human body produce when exposed to sunlight?", a: "Vitamin D", points: 600, type: "text" },
     { q: "What is the name for a word that reads the same forwards and backwards?", a: "A palindrome", points: 600, type: "text" },
     { q: "How many strings does a standard violin have?", a: "Four", points: 400, type: "text" },
     { q: "What is the chemical symbol for sodium?", a: "Na", points: 200, type: "text" },
@@ -52,7 +52,7 @@ const EXTRA_QUESTIONS = {
     { q: "Who was the first African American to win the Best Actor Academy Award?", a: "Sidney Poitier", points: 1000, type: "text" }
   ],
   "Music & Songs": [
-    { q: "Which 1980s song by Toto references blessing the rains in Africa?", a: "Africa", points: 200, type: "text" },
+    { q: "Which 1980s Toto song includes the lyric about blessing the rains down on a continent?", a: "Africa", points: 200, type: "text" },
     { q: "Which streaming service was founded in Sweden in 2006?", a: "Spotify", points: 200, type: "text" },
     { q: "Which genre of music originated in the Bronx, New York, in the 1970s?", a: "Hip hop", points: 600, type: "text" },
     { q: "Which Brazilian genre blends samba and jazz, popularized by The Girl from Ipanema?", a: "Bossa nova", points: 600, type: "text" },
@@ -136,7 +136,7 @@ const EXTRA_QUESTIONS = {
   ],
 
   "Logos & Brands": [
-    { q: "Which technology company's logo is an apple with a bite taken out of it?", a: "Apple", points: 200, type: "text" },
+    { q: "Which technology company uses a bitten fruit silhouette as its logo?", a: "Apple", points: 200, type: "text" },
     { q: "Which fast-food chain is known for its golden arches logo?", a: "McDonald's", points: 200, type: "text" },
     { q: "Which sportswear brand uses a curved checkmark called the swoosh?", a: "Nike", points: 200, type: "text" },
     { q: "Which coffeehouse chain has a green logo featuring a twin-tailed mermaid?", a: "Starbucks", points: 200, type: "text" },
@@ -192,7 +192,7 @@ const EXTRA_QUESTIONS = {
     { q: "Which animated sitcom centers on Peter Griffin in the town of Quahog?", a: "Family Guy", points: 400, type: "text" },
     { q: "In Toy Story, what is the name of the cowboy doll voiced by Tom Hanks?", a: "Woody", points: 400, type: "text" },
     { q: "Which Cartoon Network show follows Finn and a dog named Jake in the Land of Ooo?", a: "Adventure Time", points: 400, type: "text" },
-    { q: "Which film features a girl named Coraline who finds a parallel world?", a: "Coraline", points: 400, type: "text" },
+    { q: "Which stop-motion film follows a girl who discovers a button-eyed parallel world?", a: "Coraline", points: 400, type: "text" },
     { q: "In Avatar: The Last Airbender, what element does Aang master last?", a: "Fire", points: 400, type: "text" },
     { q: "Which Studio Ghibli film features Chihiro working in a bathhouse for spirits?", a: "Spirited Away", points: 600, type: "text" },
     { q: "In South Park, which parka-wearing character repeatedly dies in early episodes?", a: "Kenny", points: 600, type: "text" },
@@ -209,18 +209,18 @@ const EXTRA_QUESTIONS = {
     { q: "In The Simpsons, who runs the Kwik-E-Mart?", a: "Apu", points: 800, type: "text" },
     { q: "Which Don Bluth film follows a mouse named Fievel emigrating to America?", a: "An American Tail", points: 800, type: "text" },
     { q: "In BoJack Horseman, what type of animal is the title character?", a: "A horse", points: 800, type: "text" },
-    { q: "Which 1968 Beatles animated film features the song Yellow Submarine?", a: "Yellow Submarine", points: 800, type: "text" },
+    { q: "Which 1968 Beatles animated film is set partly in Pepperland under the sea?", a: "Yellow Submarine", points: 800, type: "text" },
     { q: "Which 1995 anime by Mamoru Oshii follows the cyborg Major Motoko Kusanagi?", a: "Ghost in the Shell", points: 1000, type: "text" },
     { q: "Which animator created the stop-motion duo Wallace and Gromit?", a: "Nick Park", points: 1000, type: "text" },
     { q: "In the 1960s series The Flintstones, what is the Flintstones' pet dinosaur called?", a: "Dino", points: 1000, type: "text" },
     { q: "Which Studio Ghibli film by Isao Takahata follows two siblings in wartime Japan?", a: "Grave of the Fireflies", points: 1000, type: "text" },
     { q: "In Neon Genesis Evangelion, what are the giant biomechanical units called?", a: "Evangelions (Evas)", points: 1000, type: "text" },
     { q: "Which 1981 animated anthology film featured a glowing green orb called the Loc-Nar?", a: "Heavy Metal", points: 1000, type: "text" },
-    { q: "Which French animated film from 1973 is known in English as Fantastic Planet?", a: "Fantastic Planet", points: 1000, type: "text" },
+    { q: "Which surreal 1973 French animated film about Draags and Oms won a Cannes special prize?", a: "Fantastic Planet", points: 1000, type: "text" },
     { q: "Which Hayao Miyazaki film features a forest spirit and a girl named San?", a: "Princess Mononoke", points: 1000, type: "text" }
   ],
   "TV Shows": [
-    { q: "Which sitcom follows six friends in New York and a coffee shop called Central Perk?", a: "Friends", points: 200, type: "text" },
+    { q: "Which sitcom follows six New Yorkers who often meet at Central Perk?", a: "Friends", points: 200, type: "text" },
     { q: "Which HBO fantasy series features the Iron Throne?", a: "Game of Thrones", points: 200, type: "text" },
     { q: "Which sitcom is set in a Boston bar where everybody knows your name?", a: "Cheers", points: 200, type: "text" },
     { q: "Which series follows chemistry teacher Walter White making methamphetamine?", a: "Breaking Bad", points: 200, type: "text" },

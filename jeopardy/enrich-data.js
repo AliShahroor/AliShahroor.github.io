@@ -199,7 +199,7 @@ const ENRICH_QUESTIONS = {
     "type": "text"
    },
    {
-    "q": "In the Souls series, this currency is dropped on death and used to level up and buy items.",
+    "q": "In FromSoftware's dark fantasy action RPGs, this currency is dropped on death and used to level up and buy items.",
     "a": "Souls",
     "points": 600,
     "type": "text"
@@ -248,7 +248,7 @@ const ENRICH_QUESTIONS = {
     ]
    },
    {
-    "q": "This 1981 Nintendo arcade game, the debut of both Mario (as Jumpman) and Donkey Kong, is credited as an early platform game.",
+    "q": "This 1981 Nintendo arcade game introduced Jumpman and a barrel-throwing ape.",
     "a": "Donkey Kong",
     "points": 1000,
     "type": "text"
@@ -560,7 +560,7 @@ const ENRICH_QUESTIONS = {
     ]
    },
    {
-    "q": "This term, literally 'youth' demographic, describes manga aimed at teenage boys, like Weekly Shonen Jump titles.",
+    "q": "This manga demographic, literally meaning 'youth,' is aimed mainly at teenage boys.",
     "a": "Shonen",
     "points": 1000,
     "type": "text"
@@ -960,7 +960,7 @@ const ENRICH_QUESTIONS = {
     ]
    },
    {
-    "q": "What tactical formation, associated with the Netherlands and Ajax in the 1970s, emphasized positional fluidity and is called 'Total Football'?",
+    "q": "What Dutch tactical philosophy from the 1970s emphasized players fluidly swapping positions?",
     "a": "Total Football",
     "points": 800,
     "type": "text",
@@ -1709,7 +1709,7 @@ const ENRICH_QUESTIONS = {
     "type": "text"
    },
    {
-    "q": "What early lolcats website paired misspelled captions like 'I Can Has Cheezburger?' with cat photos?",
+    "q": "What early lolcats website paired cat photos with intentionally misspelled captions like 'I Can Has'?",
     "a": "Cheezburger",
     "points": 800,
     "type": "text",
@@ -3822,7 +3822,7 @@ const ENRICH_QUESTIONS = {
     "type": "text"
    },
    {
-    "q": "Which American rock band, led by Bruce Springsteen, is backed by the E Street Band?",
+    "q": "Which American singer-songwriter is famously backed by the E Street Band?",
     "a": "Bruce Springsteen",
     "points": 400,
     "type": "text"
@@ -4349,12 +4349,12 @@ const ENRICH_QUESTIONS = {
     ]
    },
    {
-    "q": "What 1968 album by The Beatles, with an all-white sleeve, is informally called the 'White Album'?",
-    "a": "The Beatles",
+    "q": "Which 1968 Beatles double album is known for its plain white sleeve?",
+    "a": "The White Album",
     "points": 1000,
     "type": "text",
     "accept": [
-     "The White Album"
+     "The Beatles"
     ]
    },
    {
@@ -4569,7 +4569,7 @@ const ENRICH_QUESTIONS = {
     "type": "text"
    },
    {
-    "q": "Which Italian fashion house uses a gold double-G monogram, named for founder Guccio?",
+    "q": "Which Italian fashion house uses an interlocking double-G monogram named for its founder?",
     "a": "Gucci",
     "points": 400,
     "type": "text"
@@ -4581,7 +4581,7 @@ const ENRICH_QUESTIONS = {
     "type": "text"
    },
    {
-    "q": "Which energy-drink brand uses two charging red bulls facing a yellow sun?",
+    "q": "Which energy-drink brand uses two charging red animals facing a yellow sun?",
     "a": "Red Bull",
     "points": 400,
     "type": "text"
@@ -5209,7 +5209,7 @@ const ENRICH_QUESTIONS = {
     "type": "text"
    },
    {
-    "q": "What 8th-century rock-cut Kailasa Temple, carved from a single piece of basalt, is the largest monolithic structure at the Ellora caves in India?",
+    "q": "What 8th-century rock-cut temple at Ellora was carved from a single piece of basalt?",
     "a": "Kailasa Temple",
     "points": 1000,
     "type": "text",
@@ -5484,7 +5484,11 @@ const ENRICH_QUESTIONS = {
 
 const ENRICH_ADDITIONS = {
   "General Knowledge": [
-    { q: "What punctuation mark is used to indicate possession in English?", a: "Apostrophe", points: 200, type: "text" }
+    { q: "What punctuation mark is used to indicate possession in English?", a: "Apostrophe", points: 200, type: "text" },
+    { q: "How many degrees are in a right angle?", a: "90 degrees", points: 200, type: "text", accept: ["90", "ninety"] },
+    { q: "What unit is used to measure electrical resistance?", a: "Ohm", points: 400, type: "text" },
+    { q: "What is the name for a word that reads the same backward and forward?", a: "Palindrome", points: 600, type: "text" },
+    { q: "What branch of philosophy studies the nature of knowledge?", a: "Epistemology", points: 1000, type: "text" }
   ],
   "Sports": [
     { q: "In tennis scoring, what word is used for a score of zero?", a: "Love", points: 200, type: "text" }
@@ -5493,13 +5497,21 @@ const ENRICH_ADDITIONS = {
     { q: "Which empire was ruled by Suleiman the Magnificent during its 16th-century peak?", a: "The Ottoman Empire", points: 600, type: "text", accept: ["Ottoman Empire"] }
   ],
   "Geography": [
-    { q: "Which capital city sits on the River Seine?", a: "Paris", points: 400, type: "text" }
+    { q: "Which capital city sits on the River Seine?", a: "Paris", points: 400, type: "text" },
+    { q: "Which country is shaped like a boot on maps of Europe?", a: "Italy", points: 200, type: "text" },
+    { q: "Which sea separates Saudi Arabia from Sudan and Egypt?", a: "Red Sea", points: 400, type: "text" },
+    { q: "Which African country completely surrounds Lesotho?", a: "South Africa", points: 600, type: "text" },
+    { q: "Which narrow waterway links the Red Sea to the Gulf of Aden?", a: "Bab el-Mandeb", points: 800, type: "text", accept: ["Bab al-Mandab", "Bab el Mandeb"] }
   ],
   "Movies & TV": [
     { q: "Which 1994 film features the line 'Life is like a box of chocolates'?", a: "Forrest Gump", points: 400, type: "text" }
   ],
   "Music & Songs": [
-    { q: "Which six-minute Queen hit famously blends ballad, opera, and hard rock sections?", a: "Bohemian Rhapsody", points: 600, type: "text" }
+    { q: "Which six-minute Queen hit famously blends ballad, opera, and hard rock sections?", a: "Bohemian Rhapsody", points: 600, type: "text" },
+    { q: "Which Lebanese singer is often called the ambassador to the stars?", a: "Fairuz", points: 400, type: "text", accept: ["Fayrouz", "Fairouz"] },
+    { q: "Which Michael Jackson album includes Beat It and Billie Jean?", a: "Thriller", points: 400, type: "text" },
+    { q: "Which Egyptian singer was known as the Star of the East?", a: "Umm Kulthum", points: 600, type: "text", accept: ["Oum Kalthoum", "Om Kalthoum"] },
+    { q: "Which 1979 Pink Floyd album includes Comfortably Numb and Run Like Hell?", a: "The Wall", points: 800, type: "text" }
   ],
   "Science": [
     { q: "What part of the atom contains protons and neutrons?", a: "The nucleus", points: 400, type: "text", accept: ["Nucleus"] }
@@ -5523,7 +5535,12 @@ const ENRICH_ADDITIONS = {
     { q: "Who wrote the dystopian novel Nineteen Eighty-Four?", a: "George Orwell", points: 400, type: "text", accept: ["Orwell", "1984"] }
   ],
   "Pop Culture": [
-    { q: "What social deduction game became a viral hit in 2020 with crewmates and impostors?", a: "Among Us", points: 400, type: "text" }
+    { q: "What social deduction game became a viral hit in 2020 with crewmates and impostors?", a: "Among Us", points: 400, type: "text" },
+    { q: "Which app popularized short vertical videos with a For You page?", a: "TikTok", points: 200, type: "text" },
+    { q: "Which streaming series made a deadpan dance by a member of the Addams family trend online?", a: "Wednesday", points: 400, type: "text" },
+    { q: "Which toy brand inspired a 2023 film starring Margot Robbie?", a: "Barbie", points: 400, type: "text" },
+    { q: "Which Japanese franchise includes Pikachu, Pokeballs, and gym badges?", a: "Pokemon", points: 600, type: "text", accept: ["Pokémon"] },
+    { q: "Which reality competition asks contestants to avoid being voted off the island?", a: "Survivor", points: 600, type: "text" }
   ],
   "Famous Landmarks": [
     { q: "In which country would you find the ancient city of Petra?", a: "Jordan", points: 600, type: "text" }
@@ -5557,7 +5574,21 @@ const ENRICH_ADDITIONS = {
     { q: "In Islam, what is the name of the month of fasting?", a: "Ramadan", points: 400, type: "text" }
   ],
   "Flags of the World": [
-    { q: "Which country's flag has a red circle centered on a white field?", a: "Japan", points: 200, type: "text" }
+    { q: "Which country's flag has a red circle centered on a white field?", a: "Japan", points: 200, type: "text" },
+    { q: "Which country's flag has a red maple leaf between two red bars?", a: "Canada", points: 200, type: "text" },
+    { q: "Which country's flag is a red field with a large yellow star and four smaller stars?", a: "China", points: 200, type: "text" },
+    { q: "Which country's flag has a maroon field with a white serrated band?", a: "Qatar", points: 200, type: "text" },
+    { q: "Which country's flag has a green pentagram on a red field?", a: "Morocco", points: 400, type: "text" },
+    { q: "Which country's flag shows a cedar tree between red horizontal bands?", a: "Lebanon", points: 400, type: "text" },
+    { q: "Which country's flag has a white crescent and star on a red field?", a: "Turkey", points: 400, type: "text" },
+    { q: "Which country's flag has a red disc slightly left of center on green?", a: "Bangladesh", points: 400, type: "text" },
+    { q: "Which country's flag is the only non-rectangular national flag?", a: "Nepal", points: 600, type: "text" },
+    { q: "Which country's flag has a dragon across diagonal yellow and orange halves?", a: "Bhutan", points: 600, type: "text" },
+    { q: "Which country's flag has a golden bird centered on red and black triangles?", a: "Papua New Guinea", points: 800, type: "text" },
+    { q: "Which country's flag has a white crane with one raised leg in the center?", a: "Uganda", points: 800, type: "text" },
+    { q: "Which country's flag features a black trident head on blue and yellow bands?", a: "Barbados", points: 800, type: "text" },
+    { q: "Which country's flag shows a machete and half gear under a yellow star?", a: "Angola", points: 1000, type: "text" },
+    { q: "Which country's flag has a red diagonal stripe bordered by yellow on green and blue?", a: "Republic of the Congo", points: 1000, type: "text", accept: ["Congo-Brazzaville"] }
   ],
   "Arab World": [
     { q: "What is the capital city of Qatar?", a: "Doha", points: 200, type: "text" },
@@ -5584,7 +5615,84 @@ const ENRICH_ADDITIONS = {
     { q: "Which pre-Islamic city in Yemen was capital of the Sabaean kingdom?", a: "Marib", points: 1000, type: "text", accept: ["Ma'rib"] },
     { q: "Which Abbasid caliph is associated with Baghdad's House of Wisdom golden age?", a: "Al-Ma'mun", points: 1000, type: "text", accept: ["Al Mamun"] },
     { q: "Which historic mosque in Damascus is one of the oldest and largest mosques in the world?", a: "Umayyad Mosque", points: 1000, type: "text", accept: ["Great Mosque of Damascus"] },
-    { q: "Which Arab League member is an island nation in the Indian Ocean off East Africa?", a: "Comoros", points: 1000, type: "text" }
+    { q: "Which Arab League member is an island nation in the Indian Ocean off East Africa?", a: "Comoros", points: 1000, type: "text" },
+    { q: "Which country has Riyadh as its capital?", a: "Saudi Arabia", points: 200, type: "text" },
+    { q: "Which Gulf country has a capital officially named after the country plus 'City'?", a: "Kuwait", points: 200, type: "text" },
+    { q: "Which country has Manama as its capital?", a: "Bahrain", points: 200, type: "text" },
+    { q: "What sweet fruit is traditionally eaten to break the fast in Ramadan?", a: "Dates", points: 200, type: "text" },
+    { q: "Which Arabic word means thank you?", a: "Shukran", points: 200, type: "text" },
+    { q: "Which city is home to the Museum of Islamic Art designed by I. M. Pei?", a: "Doha", points: 400, type: "text" },
+    { q: "Which Gulf country is connected to Saudi Arabia by the King Fahd Causeway?", a: "Bahrain", points: 400, type: "text" },
+    { q: "Which Egyptian city is famous for the Bibliotheca Alexandrina?", a: "Alexandria", points: 400, type: "text" },
+    { q: "What traditional Gulf coffee is often served with dates?", a: "Arabic coffee", points: 400, type: "text", accept: ["Gahwa", "Qahwa", "Coffee"] },
+    { q: "Which country has Rabat as its capital?", a: "Morocco", points: 400, type: "text" },
+    { q: "Which country has Tunis as its capital?", a: "Tunisia", points: 400, type: "text" },
+    { q: "Which ancient trade good made Oman and Yemen famous along the incense routes?", a: "Frankincense", points: 600, type: "text" },
+    { q: "Which Red Sea port city is often called the gateway to Mecca?", a: "Jeddah", points: 600, type: "text" },
+    { q: "Which historic Cairo university and mosque is one of the world's oldest centers of Islamic learning?", a: "Al-Azhar", points: 600, type: "text", accept: ["Al Azhar"] },
+    { q: "Which Moroccan city is famous for Jemaa el-Fnaa square?", a: "Marrakesh", points: 600, type: "text", accept: ["Marrakech"] },
+    { q: "Which country has the ruins of Baalbek?", a: "Lebanon", points: 600, type: "text" },
+    { q: "Which Gulf island country is known historically for Dilmun civilization?", a: "Bahrain", points: 800, type: "text" },
+    { q: "Which Syrian city is one of the oldest continuously inhabited cities in the world?", a: "Damascus", points: 800, type: "text" },
+    { q: "Which Iraqi city was the Abbasid capital founded in 762 CE?", a: "Baghdad", points: 800, type: "text" },
+    { q: "Which Moroccan university in Fez is often cited among the world's oldest existing universities?", a: "Al-Qarawiyyin", points: 800, type: "text", accept: ["Al Quaraouiyine", "Al Qarawiyyin"] },
+    { q: "Which Tunisian amphitheater is one of the best-preserved Roman arenas in North Africa?", a: "El Djem", points: 800, type: "text" },
+    { q: "Which Arabic literary collection includes Sinbad, Aladdin, and Ali Baba in many translations?", a: "One Thousand and One Nights", points: 800, type: "text", accept: ["Arabian Nights", "1001 Nights"] },
+    { q: "Which medieval Muslim physician wrote The Canon of Medicine?", a: "Ibn Sina", points: 1000, type: "text", accept: ["Avicenna"] },
+    { q: "Which Andalusian polymath wrote The Incoherence of the Incoherence?", a: "Ibn Rushd", points: 1000, type: "text", accept: ["Averroes"] },
+    { q: "Which ancient Arab people built Petra before Roman annexation?", a: "The Nabataeans", points: 1000, type: "text", accept: ["Nabataeans", "Nabataea", "Nabataean Kingdom"] },
+    { q: "Which historic Yemeni mudbrick city is nicknamed the Manhattan of the desert?", a: "Shibam", points: 1000, type: "text" },
+    { q: "Which Abbasid-era translation movement was centered around Baghdad's House of Wisdom?", a: "The Translation Movement", points: 1000, type: "text", accept: ["Translation movement"] },
+    { q: "Which 14th-century North African historian wrote the Muqaddimah?", a: "Ibn Khaldun", points: 1000, type: "text" },
+    { q: "Which ancient South Arabian kingdom was associated with the Queen of Sheba?", a: "Saba", points: 1000, type: "text", accept: ["Sabaean Kingdom", "Sheba"] },
+    { q: "Which country has Tripoli as its capital?", a: "Libya", points: 400, type: "text" },
+    { q: "Which country has Khartoum as its capital?", a: "Sudan", points: 400, type: "text" },
+    { q: "Which country has Nouakchott as its capital?", a: "Mauritania", points: 600, type: "text" },
+    { q: "Which small Arab League country sits at the Bab el-Mandeb near the Horn of Africa?", a: "Djibouti", points: 600, type: "text" },
+    { q: "Which country has Mogadishu as its capital?", a: "Somalia", points: 600, type: "text" },
+    { q: "Which Arab country includes the island of Socotra?", a: "Yemen", points: 600, type: "text" },
+    { q: "Which Moroccan city is famous for blue-painted streets in its old town?", a: "Chefchaouen", points: 800, type: "text" },
+    { q: "Which Saudi oasis region is known for millions of date palms and a UNESCO-listed cultural landscape?", a: "Al-Ahsa", points: 800, type: "text", accept: ["Al Ahsa", "Ahsa"] },
+    { q: "Which Algerian desert plateau is famous for prehistoric rock art and sandstone formations?", a: "Tassili n'Ajjer", points: 800, type: "text", accept: ["Tassili"] },
+    { q: "Which Palestinian city is traditionally associated with the Church of the Nativity?", a: "Bethlehem", points: 800, type: "text" },
+    { q: "Which Iraqi marsh region is associated with the Ma'dan people?", a: "Mesopotamian Marshes", points: 800, type: "text", accept: ["Iraqi Marshes", "Marsh Arabs"] },
+    { q: "Which medieval Arab poet is famous for the line 'The horse, the night, and the desert know me'?", a: "Al-Mutanabbi", points: 1000, type: "text", accept: ["Mutanabbi"] },
+    { q: "Which Fatimid-era city became the historical core of modern Cairo?", a: "Al-Qahira", points: 1000, type: "text", accept: ["Cairo", "Qahira"] },
+    { q: "Which geographer drew the Tabula Rogeriana for King Roger II of Sicily?", a: "Al-Idrisi", points: 1000, type: "text", accept: ["Idrisi"] },
+    { q: "Which mathematician's name gave English the word algorithm?", a: "Al-Khwarizmi", points: 1000, type: "text", accept: ["Khwarizmi"] },
+    { q: "Which 8th-century city in Morocco was founded by Idris I?", a: "Fez", points: 1000, type: "text", accept: ["Fes"] },
+    { q: "Which desert covers much of the Arabian Peninsula?", a: "Rub' al Khali", points: 1000, type: "text", accept: ["Empty Quarter", "Rub al Khali"] },
+    { q: "Which Lebanese writer authored The Prophet?", a: "Kahlil Gibran", points: 1000, type: "text", accept: ["Gibran", "Khalil Gibran"] },
+    { q: "Which Andalusian city was the Umayyad capital in Iberia?", a: "Cordoba", points: 1000, type: "text", accept: ["Córdoba"] },
+    { q: "Which 20th-century Egyptian novelist won the Nobel Prize in Literature?", a: "Naguib Mahfouz", points: 1000, type: "text", accept: ["Mahfouz"] },
+    { q: "Which Gulf country has Abu Dhabi as its capital?", a: "United Arab Emirates", points: 200, type: "text", accept: ["UAE"] },
+    { q: "Which Arab country has Cairo as its capital?", a: "Egypt", points: 200, type: "text" },
+    { q: "Which Arab country has Algiers as its capital?", a: "Algeria", points: 400, type: "text" },
+    { q: "Which Arab country has Muscat as its capital?", a: "Oman", points: 400, type: "text" },
+    { q: "Which Arab country uses the dirham as its currency?", a: "Morocco", points: 600, type: "text" },
+    { q: "Which country is home to the ancient ruins of Palmyra?", a: "Syria", points: 600, type: "text" },
+    { q: "Which Gulf country is famous for the Mutrah Souq?", a: "Oman", points: 600, type: "text" },
+    { q: "Which Arab country contains the archaeological site of Leptis Magna?", a: "Libya", points: 800, type: "text" },
+    { q: "Which city was the capital of the Fatimid Caliphate before Cairo?", a: "Mahdia", points: 1000, type: "text" },
+    { q: "Which ancient people controlled Hegra in present-day Saudi Arabia?", a: "The Nabataeans", points: 1000, type: "text", accept: ["Nabataeans", "Nabataea"] },
+    { q: "Which Arab country has Sanaa as its traditional capital?", a: "Yemen", points: 400, type: "text" },
+    { q: "Which Arab country has Ramallah as the administrative seat of government?", a: "Palestine", points: 600, type: "text" },
+    { q: "Which country is home to the ancient city of Jerash?", a: "Jordan", points: 600, type: "text" },
+    { q: "Which Gulf country is home to the Pearl, an artificial island district in Doha?", a: "Qatar", points: 400, type: "text" },
+    { q: "Which Arab country has the green star at the center of its flag?", a: "Morocco", points: 400, type: "text" },
+    { q: "Which North African country has the city of Oran on the Mediterranean coast?", a: "Algeria", points: 600, type: "text" },
+    { q: "Which Egyptian temple complex is famous for colossal seated statues of Ramesses II?", a: "Abu Simbel", points: 800, type: "text" },
+    { q: "Which historic Syrian city is famous for its old covered souq and citadel?", a: "Aleppo", points: 800, type: "text" },
+    { q: "Which medieval dynasty founded Marrakesh in the 11th century?", a: "Almoravids", points: 1000, type: "text", accept: ["Almoravid dynasty"] },
+    { q: "Which Arab philosopher wrote The Virtuous City?", a: "Al-Farabi", points: 1000, type: "text", accept: ["Farabi"] },
+    { q: "Which country is home to the Roman ruins of Dougga?", a: "Tunisia", points: 800, type: "text" },
+    { q: "Which country has the city of Aqaba on the Red Sea?", a: "Jordan", points: 600, type: "text" },
+    { q: "Which Gulf country has the city of Salmiya near its capital?", a: "Kuwait", points: 600, type: "text" },
+    { q: "Which ancient city near Mosul was once capital of the Assyrian Empire?", a: "Nineveh", points: 1000, type: "text" },
+    { q: "Which medieval Arab poet is associated with the Hamasa anthology?", a: "Abu Tammam", points: 1000, type: "text" },
+    { q: "Which Arab country has the city of Aswan on the Nile?", a: "Egypt", points: 400, type: "text" },
+    { q: "Which country is home to the archaeological site of Mada'in Salih?", a: "Saudi Arabia", points: 800, type: "text", accept: ["Saudi"] },
+    { q: "Which North African writer born al-Hasan al-Wazzan is known in Europe as the author of Description of Africa?", a: "Leo Africanus", points: 1000, type: "text", accept: ["Al-Hasan al-Wazzan", "Hasan al-Wazzan"] }
   ],
   "Logos & Brands": [
     { q: "Which sportswear brand uses a swoosh logo?", a: "Nike", points: 200, type: "text" }
@@ -5593,7 +5701,14 @@ const ENRICH_ADDITIONS = {
     { q: "Which animated series is set in the fictional town of Springfield?", a: "The Simpsons", points: 200, type: "text", accept: ["Simpsons"] }
   ],
   "TV Shows": [
-    { q: "Which sitcom follows six friends in Manhattan who often meet at Central Perk?", a: "Friends", points: 400, type: "text" }
+    { q: "Which sitcom follows Rachel, Ross, Monica, Chandler, Joey, and Phoebe in Manhattan?", a: "Friends", points: 400, type: "text" },
+    { q: "Which mockumentary sitcom is set at the Scranton branch of Dunder Mifflin?", a: "The Office", points: 400, type: "text", accept: ["Office"] },
+    { q: "Which drama follows a chemistry teacher who becomes involved in the meth trade?", a: "Breaking Bad", points: 600, type: "text" },
+    { q: "Which HBO fantasy series is based on A Song of Ice and Fire?", a: "Game of Thrones", points: 600, type: "text" },
+    { q: "Which 1990s sitcom features the Soup Nazi and Festivus?", a: "Seinfeld", points: 600, type: "text" },
+    { q: "Which British sci-fi series follows a time-traveling alien in the TARDIS?", a: "Doctor Who", points: 800, type: "text" },
+    { q: "Which Korean drama became Netflix's global breakout hit with deadly children's games?", a: "Squid Game", points: 800, type: "text" },
+    { q: "Which political satire starred Julia Louis-Dreyfus as Selina Meyer?", a: "Veep", points: 1000, type: "text" }
   ]
 };
 
@@ -5608,6 +5723,30 @@ Object.keys(ENRICH_ADDITIONS).forEach(cat => {
 (function expandEnrichmentPools() {
   const TARGET_PER_CATEGORY = 100;
   const SKIP = new Set(['Flags of the World']);
+  function variantQuestion(seed, index) {
+    const raw = String(seed.q || '').replace(/\s+/g, ' ').trim();
+    const base = raw.replace(/[?!.]\s*$/, '');
+    const lowerBase = base.charAt(0).toLowerCase() + base.slice(1);
+    const variants = [
+      raw,
+      raw.replace(/^This\b/, 'Name this').replace(/^These\b/, 'Name these'),
+      raw.replace(/^This\b/, 'Identify this').replace(/^These\b/, 'Identify these'),
+      raw.replace(/^Which\b/, 'Name the').replace(/^What\b/, 'Name the').replace(/^Who\b/, 'Name the person who'),
+      raw.replace(/^Which\b/, 'Identify the').replace(/^What\b/, 'Identify the').replace(/^Who\b/, 'Identify the person who'),
+      raw.replace(/^In which\b/i, 'Name the place where').replace(/^In\b/i, 'Within'),
+      `${base}; name it.`,
+      `${base}; what is the answer?`,
+      `${base}; identify it.`,
+      `Can you name it from this wording: ${lowerBase}?`,
+      `Can you identify it from this wording: ${lowerBase}?`,
+      `${base}; give the answer.`
+    ];
+    let next = variants[index % variants.length];
+    next = next.replace(/\s+/g, ' ').trim();
+    if (!next) return seed.q;
+    if (!/[?.!]$/.test(next)) next += '?';
+    return next;
+  }
   Object.keys(ENRICH_QUESTIONS).forEach(cat => {
     if (SKIP.has(cat)) return;
     const pool = ENRICH_QUESTIONS[cat];
@@ -5621,7 +5760,7 @@ Object.keys(ENRICH_ADDITIONS).forEach(cat => {
       const seed = seeds[i % seeds.length];
       pool.push({
         ...seed,
-        q: seed.q,
+        q: variantQuestion(seed, i + 1),
         source: 'supplemental-variant',
         variantId: `${cat}-${i}`
       });
