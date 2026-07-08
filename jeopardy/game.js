@@ -325,14 +325,45 @@ function levenshtein(a, b) {
   return prev[b.length];
 }
 
+const ANSWER_SYNONYM_GROUPS = [
+  ['trash', 'garbage', 'rubbish', 'waste', 'dustbin', 'bin', 'trash can', 'garbage can', 'rubbish bin', 'waste bin'],
+  ['bathroom', 'washroom', 'restroom', 'toilet', 'loo', 'wc'],
+  ['sofa', 'couch', 'settee'],
+  ['phone', 'mobile', 'cell phone', 'cellphone', 'smartphone'],
+  ['remote', 'remote control', 'controller'],
+  ['soda', 'soft drink', 'pop', 'fizzy drink'],
+  ['sneakers', 'trainers', 'running shoes', 'sports shoes'],
+  ['fries', 'chips', 'french fries'],
+  ['elevator', 'lift'],
+  ['movie', 'film'],
+  ['soccer', 'football'],
+  ['mall', 'shopping mall', 'shopping center', 'shopping centre'],
+  ['diaper', 'nappy'],
+  ['candy', 'sweets', 'sweet'],
+  ['eggplant', 'aubergine'],
+  ['zucchini', 'courgette'],
+  ['cilantro', 'coriander'],
+  ['apartment', 'flat'],
+  ['gas', 'petrol', 'fuel'],
+  ['vacation', 'holiday']
+].map(group => group.map(normalizeAnswer));
+
+function synonymGroupFor(value) {
+  const n = normalizeAnswer(value);
+  if (!n) return null;
+  return ANSWER_SYNONYM_GROUPS.find(group => group.includes(n)) || null;
+}
+
 // Does `input` match `correct` (or any of `accept` aliases), allowing for minor
 // typos? Longer answers tolerate more typos; very short answers must be exact.
 function fuzzyAnswerMatch(input, correct, accept) {
   const ni = normalizeAnswer(input);
   if (!ni) return false;
+  const inputSynonyms = synonymGroupFor(ni);
   const candidates = [correct].concat(accept || []).map(normalizeAnswer).filter(Boolean);
   for (const c of candidates) {
     if (ni === c) return true;
+    if (inputSynonyms && inputSynonyms.includes(c)) return true;
     if (ni.replace(/ /g, '') === c.replace(/ /g, '')) return true; // spacing
     const tol = c.length >= 8 ? 2 : (c.length >= 5 ? 1 : 0);
     if (tol && levenshtein(ni, c) <= tol) return true;

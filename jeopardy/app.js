@@ -2813,7 +2813,10 @@
     'taking out trash': [
       'take out trash', 'take out the trash', 'taking out the trash',
       'trash', 'garbage', 'taking out garbage', 'taking out the garbage',
-      'take out garbage', 'take out the garbage'
+      'take out garbage', 'take out the garbage', 'dustbin', 'bin',
+      'rubbish', 'waste', 'garbage can', 'trash can', 'rubbish bin',
+      'take out dustbin', 'taking out dustbin', 'empty the bin',
+      'empty trash', 'empty garbage', 'empty dustbin'
     ],
     'brush teeth': ['brushing teeth', 'brush my teeth', 'brush your teeth', 'tooth brushing'],
     'check phone': ['checking phone', 'check my phone', 'look at phone', 'look at my phone'],
@@ -2839,8 +2842,44 @@
     'hot fudge': ['fudge']
   };
 
+  const FEUD_SYNONYM_GROUPS = [
+    ['trash', 'garbage', 'rubbish', 'waste', 'dustbin', 'bin', 'trash can', 'garbage can', 'rubbish bin', 'waste bin'],
+    ['bathroom', 'washroom', 'restroom', 'toilet', 'loo', 'wc'],
+    ['sofa', 'couch', 'settee'],
+    ['phone', 'mobile', 'cell phone', 'cellphone', 'smartphone'],
+    ['remote', 'remote control', 'controller'],
+    ['soda', 'soft drink', 'pop', 'fizzy drink'],
+    ['sneakers', 'trainers', 'running shoes', 'sports shoes'],
+    ['fries', 'chips', 'french fries'],
+    ['elevator', 'lift'],
+    ['movie', 'film'],
+    ['soccer', 'football'],
+    ['mall', 'shopping mall', 'shopping center', 'shopping centre'],
+    ['candy', 'sweets', 'sweet'],
+    ['vacation', 'holiday']
+  ];
+
+  function expandFeudSynonyms(answer) {
+    const base = window.normalizeAnswer(answer);
+    const out = new Set();
+    FEUD_SYNONYM_GROUPS.forEach(group => {
+      const normalized = group.map(window.normalizeAnswer);
+      normalized.forEach((term, idx) => {
+        if (!term || !base.includes(term)) return;
+        normalized.forEach(replacement => {
+          if (replacement && replacement !== term) out.add(base.replace(term, replacement));
+        });
+        group.forEach(raw => {
+          if (idx >= 0 && raw) out.add(raw);
+        });
+      });
+    });
+    return Array.from(out);
+  }
+
   function feudAccepts(answer) {
-    return FEUD_ACCEPT[window.normalizeAnswer(answer)] || [];
+    const normalized = window.normalizeAnswer(answer);
+    return (FEUD_ACCEPT[normalized] || []).concat(expandFeudSynonyms(answer));
   }
 
   // Type what a side called out; fuzzy-match it to a hidden answer and reveal it.

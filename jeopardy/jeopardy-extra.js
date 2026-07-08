@@ -296,7 +296,27 @@ const FAMILY_FEUD = [
   { prompt: "We asked 100 people: name something you order at a cafe.", answers: ["Coffee", "Tea", "Cake", "Sandwich", "Juice", "Croissant", "Water"] },
   { prompt: "We asked 100 people: name something people do at a football match.", answers: ["Cheer", "Chant", "Eat snacks", "Wave flags", "Take photos", "Shout", "Celebrate"] },
   { prompt: "We asked 100 people: name something you pack for travel.", answers: ["Passport", "Clothes", "Charger", "Toothbrush", "Money", "Shoes", "Medicine"] },
-  { prompt: "We asked 100 people: name a popular social media platform.", answers: ["Instagram", "TikTok", "Snapchat", "YouTube", "X", "Facebook", "WhatsApp"] }
+  { prompt: "We asked 100 people: name a popular social media platform.", answers: ["Instagram", "TikTok", "Snapchat", "YouTube", "X", "Facebook", "WhatsApp"] },
+  { prompt: "We asked 100 people: name something people throw away every day.", answers: ["Food scraps", "Tissues", "Plastic bottles", "Wrappers", "Paper", "Coffee cups", "Receipts"] },
+  { prompt: "We asked 100 people: name something found in a bathroom.", answers: ["Toilet", "Sink", "Shampoo", "Soap", "Towel", "Toothbrush", "Mirror"] },
+  { prompt: "We asked 100 people: name something people keep in their car.", answers: ["Phone charger", "Water bottle", "Tissues", "Sunglasses", "Umbrella", "Perfume", "Coins"] },
+  { prompt: "We asked 100 people: name something you clean before guests arrive.", answers: ["Bathroom", "Living room", "Kitchen", "Floors", "Sofa", "Dishes", "Windows"] },
+  { prompt: "We asked 100 people: name something people forget to charge.", answers: ["Phone", "Laptop", "Watch", "Headphones", "Tablet", "Power bank", "Camera"] },
+  { prompt: "We asked 100 people: name something you find in a hotel room.", answers: ["Bed", "TV", "Towels", "Mini fridge", "Safe", "Shampoo", "Iron"] },
+  { prompt: "We asked 100 people: name something people order for delivery.", answers: ["Pizza", "Burgers", "Sushi", "Shawarma", "Coffee", "Groceries", "Dessert"] },
+  { prompt: "We asked 100 people: name something at a family gathering.", answers: ["Food", "Coffee", "Dessert", "Kids", "Photos", "Laughter", "Arguments"] },
+  { prompt: "We asked 100 people: name something people buy at a petrol station.", answers: ["Fuel", "Water", "Snacks", "Coffee", "Gum", "Phone charger", "Car wash"] },
+  { prompt: "We asked 100 people: name something associated with Qatar.", answers: ["Doha", "World Cup", "Falcon", "Pearl", "Desert", "Souq Waqif", "Lusail"] },
+  { prompt: "We asked 100 people: name something associated with Ramadan nights.", answers: ["Taraweeh", "Family visits", "Sweets", "Coffee", "Suhoor", "Lanterns", "TV series"] },
+  { prompt: "We asked 100 people: name something you see in a football stadium.", answers: ["Fans", "Flags", "Goal", "Players", "Referee", "Scoreboard", "Security"] },
+  { prompt: "We asked 100 people: name something people do on a long flight.", answers: ["Sleep", "Watch movies", "Eat", "Read", "Listen to music", "Walk around", "Play games"] },
+  { prompt: "We asked 100 people: name something people keep on their desk.", answers: ["Laptop", "Pen", "Notebook", "Coffee", "Phone", "Water bottle", "Charger"] },
+  { prompt: "We asked 100 people: name something you need for a barbecue.", answers: ["Meat", "Charcoal", "Grill", "Sauce", "Bread", "Drinks", "Salad"] },
+  { prompt: "We asked 100 people: name something people do when the Wi-Fi stops working.", answers: ["Restart router", "Check phone", "Complain", "Use mobile data", "Call provider", "Refresh page", "Wait"] },
+  { prompt: "We asked 100 people: name something in a gym bag.", answers: ["Shoes", "Towel", "Water bottle", "Clothes", "Headphones", "Deodorant", "Gloves"] },
+  { prompt: "We asked 100 people: name something at a baby shower.", answers: ["Gifts", "Cake", "Balloons", "Games", "Baby clothes", "Flowers", "Photos"] },
+  { prompt: "We asked 100 people: name something people do at the airport while waiting.", answers: ["Eat", "Shop", "Use phone", "Sleep", "Drink coffee", "Walk around", "Watch planes"] },
+  { prompt: "We asked 100 people: name something people say is too expensive.", answers: ["Rent", "Food", "Fuel", "Flights", "Phones", "Cars", "Coffee"] }
 ];
 
 // Extra topics for the 'name as many' bonus game.
@@ -312,5 +332,11 @@ const NAME_PROMPTS_EXTRA = [
   "Arabic names", "Football World Cup winners", "Premier League clubs",
   "Champions League winners", "Countries with Arabic as an official language",
   "Cities in the Gulf", "Things at a wedding", "Desserts", "Phone apps",
-  "Things in an airport", "School subjects", "Board games"
+  "Things in an airport", "School subjects", "Things you throw away",
+  "Things in a bathroom", "Things in a hotel room",
+  "Delivery foods", "Things at a family gathering", "Things at a petrol station",
+  "Things associated with Qatar", "Things associated with Ramadan nights",
+  "Things in a football stadium", "Things people do on a long flight",
+  "Things on a desk", "Things needed for a barbecue", "Things in a gym bag",
+  "Things at a baby shower", "Things people say are too expensive"
 ];

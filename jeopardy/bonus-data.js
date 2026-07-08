@@ -178,7 +178,26 @@ const RAPID_FIRE = [
   {"q":"Which country has won the most FIFA World Cup titles?","a":"Brazil","accept":["brazil"]},
   {"q":"How many players start for one football team on the pitch?","a":"11","accept":["11","eleven"]},
   {"q":"What color card sends a football player off?","a":"Red card","accept":["red","red card"]},
-  {"q":"Which sport uses a racket and shuttlecock?","a":"Badminton","accept":["badminton"]}
+  {"q":"Which sport uses a racket and shuttlecock?","a":"Badminton","accept":["badminton"]},
+  {"q":"What do you call the container used for household garbage?","a":"Dustbin","accept":["dustbin","trash can","garbage can","bin","rubbish bin","waste bin"]},
+  {"q":"What room is also commonly called a washroom or restroom?","a":"Bathroom","accept":["bathroom","washroom","restroom","toilet","loo"]},
+  {"q":"What is another common word for a sofa?","a":"Couch","accept":["couch","sofa","settee"]},
+  {"q":"What is another common word for a mobile phone?","a":"Cell phone","accept":["cell phone","cellphone","mobile","phone","smartphone"]},
+  {"q":"What is another word for a lift in American English?","a":"Elevator","accept":["elevator","lift"]},
+  {"q":"What food is also called French fries?","a":"Fries","accept":["fries","chips","french fries"]},
+  {"q":"What do British speakers often call a vacation?", "a":"Holiday","accept":["holiday","vacation"]},
+  {"q":"What is another word for petrol in American English?", "a":"Gas","accept":["gas","petrol","fuel"]},
+  {"q":"Which Qatar landmark is a traditional market in Doha?", "a":"Souq Waqif","accept":["souq waqif","souk waqif"]},
+  {"q":"Which city is Qatar's capital?", "a":"Doha","accept":["doha"]},
+  {"q":"Which Gulf country is connected to Saudi Arabia by the King Fahd Causeway?", "a":"Bahrain","accept":["bahrain"]},
+  {"q":"Which country has Rabat as its capital?", "a":"Morocco","accept":["morocco"]},
+  {"q":"Which country has Tunis as its capital?", "a":"Tunisia","accept":["tunisia"]},
+  {"q":"Which footballer is nicknamed CR7?", "a":"Cristiano Ronaldo","accept":["cristiano ronaldo","ronaldo","cr7"]},
+  {"q":"Which footballer is often called Leo?", "a":"Lionel Messi","accept":["lionel messi","messi","leo messi"]},
+  {"q":"What does VAR stand for in football?", "a":"Video Assistant Referee","accept":["video assistant referee","var"]},
+  {"q":"What is the main ingredient in hummus?", "a":"Chickpeas","accept":["chickpeas","chickpea","garbanzo beans"]},
+  {"q":"What sweet fried dough balls are popular in the Gulf?", "a":"Luqaimat","accept":["luqaimat","lugaimat","loqaimat"]},
+  {"q":"Which app is famous for short vertical videos and a For You page?", "a":"TikTok","accept":["tiktok","tik tok"]}
 ];
 
 const NAME_SETS = {
@@ -768,6 +787,77 @@ const NAME_SETS = {
   "benfica", "chelsea", "nottingham forest", "porto", "celtic", "hamburg",
   "steaua bucharest", "marseille", "borussia dortmund", "feyenoord",
   "aston villa", "psv", "red star belgrade", "manchester city"
+ ],
+ "things_throw_away": [
+  "trash", "garbage", "rubbish", "waste", "food scraps", "tissues", "napkins",
+  "plastic bottles", "bottles", "wrappers", "paper", "receipts", "coffee cups",
+  "cans", "boxes", "bags", "leftovers", "dustbin", "bin"
+ ],
+ "bathroom_items": [
+  "toilet", "sink", "shampoo", "soap", "towel", "toothbrush", "mirror",
+  "toothpaste", "conditioner", "razor", "shower", "bath", "washroom",
+  "restroom", "loo", "toilet paper", "tissue"
+ ],
+ "hotel_room_items": [
+  "bed", "tv", "television", "towels", "mini fridge", "safe", "shampoo",
+  "iron", "desk", "chair", "pillow", "blanket", "soap", "hair dryer",
+  "phone", "kettle", "coffee", "water"
+ ],
+ "delivery_foods": [
+  "pizza", "burgers", "burger", "sushi", "shawarma", "coffee", "groceries",
+  "dessert", "chicken", "sandwich", "pasta", "noodles", "biryani", "kebab",
+  "ice cream", "salad"
+ ],
+ "family_gathering_items": [
+  "food", "coffee", "dessert", "kids", "children", "photos", "laughter",
+  "arguments", "tea", "dates", "sweets", "cake", "games", "music", "gifts"
+ ],
+ "petrol_station_items": [
+  "fuel", "gas", "petrol", "water", "snacks", "coffee", "gum", "phone charger",
+  "car wash", "oil", "tissues", "chips", "candy", "sweets", "soft drink",
+  "soda", "energy drink"
+ ],
+ "qatar_associations": [
+  "doha", "world cup", "falcon", "pearl", "desert", "souq waqif", "lusail",
+  "corniche", "katara", "al bayt stadium", "museum of islamic art", "qatar airways",
+  "the pearl", "dates", "arabian gulf"
+ ],
+ "ramadan_nights": [
+  "taraweeh", "family visits", "sweets", "coffee", "suhoor", "lanterns",
+  "tv series", "qiyam", "tea", "dates", "majlis", "iftar", "prayer",
+  "games", "dessert"
+ ],
+ "football_stadium_items": [
+  "fans", "flags", "goal", "players", "referee", "scoreboard", "security",
+  "seats", "chants", "tickets", "pitch", "ball", "whistle", "food", "drinks"
+ ],
+ "long_flight_activities": [
+  "sleep", "watch movies", "movie", "eat", "read", "listen to music",
+  "walk around", "play games", "use phone", "use laptop", "pray", "talk",
+  "drink water", "look out window"
+ ],
+ "desk_items": [
+  "laptop", "pen", "notebook", "coffee", "phone", "water bottle", "charger",
+  "keyboard", "mouse", "monitor", "paper", "sticky notes", "headphones",
+  "lamp", "calendar"
+ ],
+ "barbecue_items": [
+  "meat", "charcoal", "grill", "sauce", "bread", "drinks", "salad",
+  "chicken", "kebabs", "skewers", "fire", "lighter", "plates", "napkins",
+  "corn"
+ ],
+ "gym_bag_items": [
+  "shoes", "sneakers", "trainers", "towel", "water bottle", "clothes",
+  "headphones", "deodorant", "gloves", "protein bar", "lock", "socks",
+  "shaker", "phone"
+ ],
+ "baby_shower_items": [
+  "gifts", "cake", "balloons", "games", "baby clothes", "flowers", "photos",
+  "diapers", "nappies", "toys", "decorations", "cupcakes", "cards", "blanket"
+ ],
+ "expensive_things": [
+  "rent", "food", "fuel", "gas", "petrol", "flights", "phones", "cars",
+  "coffee", "houses", "tuition", "insurance", "weddings", "hotels", "groceries"
  ]
 };
 
@@ -789,5 +879,20 @@ const NAME_PROMPT_KEY = {
  "Qatar landmarks": "qatar_landmarks",
  "Ramadan foods": "ramadan_foods",
  "Football World Cup winners": "world_cup_winners",
- "Champions League winners": "champions_league_winners"
+ "Champions League winners": "champions_league_winners",
+ "Things you throw away": "things_throw_away",
+ "Things in a bathroom": "bathroom_items",
+ "Things in a hotel room": "hotel_room_items",
+ "Delivery foods": "delivery_foods",
+ "Things at a family gathering": "family_gathering_items",
+ "Things at a petrol station": "petrol_station_items",
+ "Things associated with Qatar": "qatar_associations",
+ "Things associated with Ramadan nights": "ramadan_nights",
+ "Things in a football stadium": "football_stadium_items",
+ "Things people do on a long flight": "long_flight_activities",
+ "Things on a desk": "desk_items",
+ "Things needed for a barbecue": "barbecue_items",
+ "Things in a gym bag": "gym_bag_items",
+ "Things at a baby shower": "baby_shower_items",
+ "Things people say are too expensive": "expensive_things"
 };
