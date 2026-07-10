@@ -1470,7 +1470,7 @@
     game.nextPlayer();
     renderScoreboard();
     renderBoard();
-    if (game.isGameOver) setTimeout(() => showResults(), 500);
+    if (game.isGameOver) setTimeout(handleBoardComplete, 500);
   }
 
   // Skip / give up on the question with no scoring — reveal the answer, then move on.
@@ -1490,7 +1490,7 @@
     game.nextPlayer();
     renderScoreboard();
     renderBoard();
-    if (game.isGameOver) setTimeout(() => showResults(), 500);
+    if (game.isGameOver) setTimeout(handleBoardComplete, 500);
   }
 
   function closeQuestionModal() {
@@ -1507,6 +1507,50 @@
       lastFocusedTrigger.focus();
       lastFocusedTrigger = null;
     }
+  }
+
+  function hasPlayableBonusRounds() {
+    return game && game.players && game.players.length >= 2 && (game.bonusLifelines || 0) > 0;
+  }
+
+  function handleBoardComplete() {
+    if (hasPlayableBonusRounds()) {
+      showBoardCompleteBonusPrompt();
+      return;
+    }
+    showResults();
+  }
+
+  function showBoardCompleteBonusPrompt() {
+    const overlay = document.getElementById('bonus-overlay');
+    const modal = document.getElementById('bonus-modal');
+    if (!overlay || !modal) {
+      showResults();
+      return;
+    }
+    game.stopTimer();
+    modal.innerHTML = `
+      <span class="bonus-icon">&#9889;</span>
+      <h2 class="bonus-title">Main Board Complete</h2>
+      <p class="bonus-desc">There ${game.bonusLifelines === 1 ? 'is' : 'are'} <strong>${game.bonusLifelines}</strong> bonus round${game.bonusLifelines === 1 ? '' : 's'} left. Play them now, or go straight to final results.</p>
+      <div class="bonus-actions">
+        <button class="btn btn-bonus btn-large" onclick="window.app.playBoardCompleteBonus()">Play Bonus Round</button>
+        <button class="btn btn-primary btn-large" onclick="window.app.showFinalResults()">Show Final Results</button>
+      </div>`;
+    overlay.classList.add('active');
+    sound.playBoardReveal();
+  }
+
+  function playBoardCompleteBonus() {
+    const overlay = document.getElementById('bonus-overlay');
+    if (overlay) overlay.classList.remove('active');
+    openBonus();
+  }
+
+  function showFinalResults() {
+    const overlay = document.getElementById('bonus-overlay');
+    if (overlay) overlay.classList.remove('active');
+    showResults();
   }
 
   // ---- Interactive Challenge ----
@@ -1892,7 +1936,7 @@
     game.loadGameState(state);
 
     if (game.isGameOver) {
-      showResults();
+      handleBoardComplete();
     } else {
       showGameBoard();
     }
@@ -2957,6 +3001,9 @@
     const overlay = document.getElementById('bonus-overlay');
     if (overlay) overlay.classList.remove('active');
     bonusState = null;
+    if (game.isGameOver) {
+      setTimeout(handleBoardComplete, 250);
+    }
   }
 
   // ---- How To Play ----
@@ -3172,6 +3219,8 @@
     rerollBonus,
     startBonusDuel,
     startBonusFeud,
+    playBoardCompleteBonus,
+    showFinalResults,
     startBonusWager,
     wagerSubmit,
     wagerGiveUp,
