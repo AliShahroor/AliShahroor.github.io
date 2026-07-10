@@ -23,7 +23,7 @@ const EXTRA_QUESTIONS = {
     { q: "Which Formula 1 team is the most successful by constructors' championships?", a: "Ferrari", points: 600, type: "text" },
     { q: "In what sport is the Ryder Cup contested?", a: "Golf", points: 400, type: "text" },
     { q: "How many players are on the ice per team in hockey, including the goalie?", a: "Six", points: 400, type: "text" },
-    { q: "In rugby union, how many points is a try worth?", a: "Five", points: 800, type: "text" },
+    { q: "In rugby union, how many points is a try worth?", a: "Five", points: 400, type: "text" },
     { q: "In baseball, what is hitting a single, double, triple, and home run in one game called?", a: "Hitting for the cycle", points: 800, type: "text" },
     { q: "In fencing, what are the three weapons used?", a: "Foil, epee, and sabre", points: 1000, type: "text" }
   ],
@@ -38,7 +38,7 @@ const EXTRA_QUESTIONS = {
   "Geography": [
     { q: "Which African country was never formally colonized by a European power?", a: "Ethiopia", points: 600, type: "text" },
     { q: "Which mountain range separates Europe from Asia?", a: "The Ural Mountains", points: 600, type: "text" },
-    { q: "Through how many countries does the equator pass?", a: "Thirteen", points: 800, type: "text" },
+    { q: "Through how many countries does the equator pass?", a: "Thirteen", points: 600, type: "text" },
     { q: "Which sea is the saltiest outlet-free body of water bordering Jordan and Israel?", a: "The Dead Sea", points: 800, type: "text" },
     { q: "Which is the only country to border both the Caspian Sea and the Persian Gulf?", a: "Iran", points: 1000, type: "text" },
     { q: "Which Pacific island republic comprising over 300 islands sits near the date line?", a: "Fiji", points: 1000, type: "text" }

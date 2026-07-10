@@ -1287,8 +1287,8 @@
     if (box) box.classList.remove('hidden-answer');
   }
 
-  // Timer ran out — don't reveal the answer; the player on turn missed their
-  // chance, so go straight to the steal phase (other players can answer).
+  // Timer ran out — don't reveal the answer. Let the host award whoever
+  // actually got it right, including the original answering side.
   function handleTimeUp() {
     game.stopTimer();
     renderStealPanel(true);
@@ -1335,20 +1335,21 @@
     const controls = document.getElementById('judge-controls');
     const question = game.currentQuestion;
     if (!controls || !question) return;
-    const stealers = game.players
+    const candidates = game.players
       .map((p, i) => ({ p, i }))
-      .filter(o => o.i !== game.currentPlayerIndex);
+      .filter(o => timedOut || o.i !== game.currentPlayerIndex);
     controls.innerHTML = `
-      ${timedOut ? '<p class="times-up-note">&#9200; Time\'s up — open for a steal!</p>' : ''}
-      <p class="judge-target">&#128176; Steal! Tap whoever got it right. <span class="judge-pts">(+$${question.points})</span></p>
+      ${timedOut ? '<p class="times-up-note">&#9200; Time\'s up — award whoever answered correctly.</p>' : ''}
+      <p class="judge-target">${timedOut ? 'Who answered correctly?' : '&#128176; Steal! Tap whoever got it right.'} <span class="judge-pts">(+$${question.points})</span></p>
       <div class="resolve-players">
-        ${stealers.map(o => `
+        ${candidates.map(o => `
           <button class="resolve-btn" style="border-color: ${o.p.color}; color: ${o.p.color}" onclick="window.app.resolveSteal(${o.i})">
             &#10003; ${escapeHtml(o.p.name)} &nbsp;+$${question.points}
           </button>`).join('')}
       </div>
       <div class="judge-buttons" style="margin-top: 12px;">
         <button class="btn btn-danger" onclick="window.app.noOneGotIt()">&#10007; No one got it</button>
+        <button class="btn btn-secondary" onclick="window.app.skipFromReveal()">Move ahead</button>
         <button class="btn btn-secondary" onclick="window.app.showAnswer()">&#128065; Show Answer</button>
       </div>
     `;

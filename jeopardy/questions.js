@@ -823,13 +823,15 @@ function rememberSeenQuestion(question) {
 }
 
 // Helper to get a random question from a category at a point value
-function getRandomQuestion(category, points, seenQuestions) {
+function getRandomQuestion(category, points, seenQuestions, preferredType) {
   const questions = getQuestionsByPoints(category, points);
   if (questions.length === 0) return null;
+  const typed = preferredType ? questions.filter(q => q.type === preferredType) : questions;
+  const candidates = typed.length ? typed : questions;
   const unseen = seenQuestions
-    ? questions.filter(q => !seenQuestions.has(questionMemoryKey({ ...q, category })))
-    : questions;
-  const pool = unseen.length ? unseen : questions;
+    ? candidates.filter(q => !seenQuestions.has(questionMemoryKey({ ...q, category })))
+    : candidates;
+  const pool = unseen.length ? unseen : candidates;
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
@@ -849,11 +851,14 @@ function buildGameBoard(selectedCategories) {
     board[category] = [];
     const usedAns = new Set(); // keep one game's board free of repeated answers
     pointValues.forEach(points => {
-      let question = getRandomQuestion(category, points, seenQuestions);
+      const preferredType = category === 'Flags of the World'
+        ? ([400, 800].includes(points) ? 'text' : 'image')
+        : null;
+      let question = getRandomQuestion(category, points, seenQuestions, preferredType);
       // Re-roll a few times to avoid the same answer appearing twice this game.
       let tries = 0;
       while (question && question.a && usedAns.has(ansKey(question.a)) && tries < 8) {
-        question = getRandomQuestion(category, points, seenQuestions);
+        question = getRandomQuestion(category, points, seenQuestions, preferredType);
         tries++;
       }
       if (question) {

@@ -2691,7 +2691,7 @@ const ENRICH_QUESTIONS = {
     ]
    },
    {
-    "q": "What is the capital of Canada's neighbor to the southeast island nation Cuba?",
+    "q": "Which Caribbean capital is famous for the Malecón seafront boulevard?",
     "a": "Havana",
     "points": 800,
     "type": "text"
