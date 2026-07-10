@@ -1065,6 +1065,8 @@
       renderInteractiveQuestion(question);
     } else if (question.type === 'image') {
       renderImageQuestion(question);
+    } else if (question.type === 'audio') {
+      renderAudioQuestion(question);
     } else {
       renderTextQuestion(question);
     }
@@ -1137,6 +1139,46 @@
 
     content.innerHTML = `
       ${imageHtml ? `<div class="question-image-container">${imageHtml}</div>` : ''}
+      <div class="question-text">${escapeHtml(displayQuestionText(question.q))}</div>
+      <div class="timer-container">
+        <div class="timer-bar-wrapper">
+          <div class="timer-bar" id="timer-bar" style="width: 100%"></div>
+        </div>
+        <div class="timer-display" id="timer-display">${game.timerDuration || "∞"}</div>
+      </div>
+      <div class="player-selector" id="player-selector">
+        ${game.players.map((p, i) => `
+          <button class="player-select-btn ${i === game.currentPlayerIndex ? 'selected' : ''}"
+                  style="border-color: ${i === game.currentPlayerIndex ? p.color : ''}"
+                  onclick="window.app.selectAnsweringPlayer(${i})"
+                  data-player="${i}">
+            ${escapeHtml(p.name)}
+          </button>
+        `).join('')}
+      </div>
+      <div class="answer-section" id="answer-section">
+        <div class="correct-answer hidden-answer" id="answer-box">
+          <span class="answer-label">Answer</span>
+          <span id="answer-text"></span>
+        </div>
+        <div id="judge-controls"></div>
+      </div>
+    `;
+
+    startQuestionTimer();
+    initJudging();
+  }
+
+  function renderAudioQuestion(question) {
+    const content = document.getElementById('modal-content');
+    const clipLabel = question.clipLabel || 'Audio clue';
+
+    content.innerHTML = `
+      <div class="question-audio-container">
+        <div class="question-audio-label">${escapeHtml(clipLabel)}</div>
+        <audio class="question-audio" controls preload="metadata" src="${escapeHtml(question.audio)}"></audio>
+        ${question.audioHint ? `<p class="question-audio-hint">${escapeHtml(question.audioHint)}</p>` : ''}
+      </div>
       <div class="question-text">${escapeHtml(displayQuestionText(question.q))}</div>
       <div class="timer-container">
         <div class="timer-bar-wrapper">

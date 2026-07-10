@@ -3,6 +3,18 @@
 
 // Additional questions appended to existing categories + brand-new categories.
 const EXTRA_QUESTIONS = {
+  "Media Mix": [
+    { q: "Which landmark is shown in this photo?", a: "Eiffel Tower", points: 200, type: "image", image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eiffel_Tower_from_the_Tour_Montparnasse_3,_Paris_May_2014.jpg", imageAlt: "Eiffel Tower in Paris" },
+    { q: "Which famous mausoleum is shown in this photo?", a: "Taj Mahal", points: 200, type: "image", image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Taj_Mahal_(Edited).jpeg", imageAlt: "Taj Mahal in Agra" },
+    { q: "Play the clip. What kind of sound is this?", a: "T. rex roar", points: 400, type: "audio", audio: "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3", clipLabel: "Short Audio Clip", audioHint: "Host tip: play about five seconds, then pause." },
+    { q: "Which historic structure is shown in this photo?", a: "Great Wall of China", points: 400, type: "image", image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Great_Wall_of_China_July_2006.JPG", imageAlt: "Great Wall of China" },
+    { q: "Which mountain citadel in Peru is shown in this photo?", a: "Machu Picchu", points: 600, type: "image", image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Machu_Picchu,_Peru.jpg", imageAlt: "Machu Picchu in Peru" },
+    { q: "Which rock-cut monument in Jordan is shown in this photo?", a: "Al-Khazneh / Petra", points: 600, type: "image", image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al_Khazneh_Petra_edit_2.jpg", imageAlt: "Al-Khazneh in Petra, Jordan" },
+    { q: "This photo shows the Eiffel Tower from which city?", a: "Paris", points: 800, type: "image", image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eiffel_Tower_from_the_Tour_Montparnasse_3,_Paris_May_2014.jpg", imageAlt: "Eiffel Tower skyline" },
+    { q: "This white marble landmark is located in which Indian city?", a: "Agra", points: 800, type: "image", image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Taj_Mahal_(Edited).jpeg", imageAlt: "Taj Mahal" },
+    { q: "The site in this photo was built by which ancient civilization?", a: "Inca", points: 1000, type: "image", image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Machu_Picchu,_Peru.jpg", imageAlt: "Machu Picchu terraces" },
+    { q: "The monument shown here is also known by what Arabic name meaning 'The Treasury'?", a: "Al-Khazneh", points: 1000, type: "image", image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al_Khazneh_Petra_edit_2.jpg", imageAlt: "Petra Treasury facade" }
+  ],
   "General Knowledge": [
     { q: "What is the study of fungi called?", a: "Mycology", points: 600, type: "text" },
     { q: "Which nutrient does the human body produce when exposed to sunlight?", a: "Vitamin D", points: 600, type: "text" },

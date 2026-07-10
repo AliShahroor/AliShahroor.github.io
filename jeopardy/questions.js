@@ -638,7 +638,7 @@ const ACTIVE_CATEGORIES = [
   // Curated, direct-question themes (clean, well-known, randomized)
   'General Knowledge', 'Arab World', 'Sports', 'History', 'Geography', 'Movies & TV', 'Music & Songs',
   'Science', 'Animals & Nature', 'Food & Drink', 'Famous People', 'Technology & Inventions',
-  'Space & Astronomy', 'Art & Literature', 'Pop Culture', 'Famous Landmarks',
+  'Space & Astronomy', 'Art & Literature', 'Pop Culture', 'Famous Landmarks', 'Media Mix',
   // Bonus curated genres
   'Video Games', 'Anime & Manga', 'Superheroes', 'Football (Soccer)',
   'Cars & Automotive', 'Internet Culture', 'Mythology', 'World Religions', 'Flags of the World',
@@ -853,7 +853,7 @@ function buildGameBoard(selectedCategories) {
     pointValues.forEach(points => {
       const preferredType = category === 'Flags of the World'
         ? ([400, 800].includes(points) ? 'text' : 'image')
-        : null;
+        : (category === 'Media Mix' && points === 400 ? 'audio' : null);
       let question = getRandomQuestion(category, points, seenQuestions, preferredType);
       // Re-roll a few times to avoid the same answer appearing twice this game.
       let tries = 0;
