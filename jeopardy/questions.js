@@ -306,7 +306,7 @@ const QUESTION_BANK = {
     { q: "This English club from Merseyside won the European Cup in 1977, 1978, 1981, 1984, and 2005.", a: "Liverpool", points: 800, type: "text" },
     { q: "This Hungarian forward led the 'Magnificent Magyars' of the 1950s and later starred for Real Madrid.", a: "Ferenc Puskas", points: 800, type: "text" },
     { q: "This defensive tactic involves stepping up in a line to catch attackers offside.", a: "Offside trap", points: 800, type: "text" },
-    { q: "This Italian club, nicknamed the Old Lady, is based in Turin.", a: "Juventus", points: 1000, type: "text" },
+    { q: "Which Italian club has won the most Serie A titles?", a: "Juventus", points: 600, type: "text" },
     { q: "This goalkeeper, the only one to win the Ballon d'Or, played for the Soviet Union and was nicknamed the Black Spider.", a: "Lev Yashin", points: 1000, type: "text" },
     { q: "This stadium in Rio de Janeiro hosted the 1950 World Cup final, where Uruguay shocked Brazil.", a: "Maracana", points: 1000, type: "text" },
     { q: "This Northern Irish forward for Manchester United in the 1960s was nicknamed 'El Beatle' for his fame.", a: "George Best", points: 1000, type: "text" },
@@ -685,6 +685,7 @@ if (typeof ENRICH_QUESTIONS !== 'undefined') {
 // Never empties a point tier (keeps the last survivor of a tier).
 (function dedupeBank() {
   const seenGlobalQ = new Set();
+  const lowQualityPrompt = q => /(?:can you (?:name|identify) it from this wording|what is the answer|give the answer|;\s*(?:name|identify) it\.?$)/i.test(q || '');
   Object.keys(QUESTION_BANK).forEach(cat => {
     const seenImg = new Set();
     const tierCount = {};
@@ -692,6 +693,7 @@ if (typeof ENRICH_QUESTIONS !== 'undefined') {
     QUESTION_BANK[cat] = (QUESTION_BANK[cat] || []).filter(q => {
       if (q.type === 'interactive') return true;
       const keepTier = () => (tierCount[q.points] || 0) > 1; // don't drop a tier's last item
+      if (lowQualityPrompt(q.q) && keepTier()) { tierCount[q.points]--; return false; }
       if (q.type === 'image') {
         const aKey = (q.a == null ? '' : String(q.a)).toLowerCase().replace(/[^a-z0-9]/g, '');
         if (aKey && seenImg.has(aKey) && keepTier()) { tierCount[q.points]--; return false; }
@@ -853,7 +855,7 @@ function buildGameBoard(selectedCategories) {
     pointValues.forEach(points => {
       const preferredType = category === 'Flags of the World'
         ? ([400, 800].includes(points) ? 'text' : 'image')
-        : (category === 'Media Mix' && points === 400 ? 'audio' : null);
+        : null;
       let question = getRandomQuestion(category, points, seenQuestions, preferredType);
       // Re-roll a few times to avoid the same answer appearing twice this game.
       let tries = 0;

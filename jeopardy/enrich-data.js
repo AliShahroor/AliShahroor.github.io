@@ -1116,9 +1116,9 @@ const ENRICH_QUESTIONS = {
     ]
    },
    {
-    "q": "Which Italian club, nicknamed 'La Vecchia Signora' or the Old Lady, is the most successful in Serie A history?",
+    "q": "Which Italian club has won the most Serie A titles?",
     "a": "Juventus",
-    "points": 800,
+    "points": 600,
     "type": "text"
    },
    {
@@ -1139,7 +1139,7 @@ const ENRICH_QUESTIONS = {
    {
     "q": "Who scored twice in the 1998 FIFA World Cup final and later coached Real Madrid to three Champions League titles?",
     "a": "Zinedine Zidane",
-    "points": 1000,
+    "points": 800,
     "type": "text",
     "accept": [
      "Zidane"
@@ -1157,7 +1157,7 @@ const ENRICH_QUESTIONS = {
    {
     "q": "Who was sent off in the 2006 FIFA World Cup final for headbutting Marco Materazzi?",
     "a": "Zinedine Zidane",
-    "points": 1000,
+    "points": 600,
     "type": "text",
     "accept": [
      "Zidane"
@@ -5559,7 +5559,10 @@ const ENRICH_ADDITIONS = {
     { q: "Who scored the fastest hat-trick in Premier League history, timed at 2 minutes 56 seconds?", a: "Sadio Mane", points: 600, type: "text", accept: ["Mane"] },
     { q: "Which national team won Euro 2004 despite entering the tournament as a major underdog?", a: "Greece", points: 600, type: "text" },
     { q: "Who is the only goalkeeper to win the Ballon d'Or?", a: "Lev Yashin", points: 800, type: "text", accept: ["Yashin"] },
-    { q: "Which club won the European Cup in 1991 after a penalty shootout against Marseille?", a: "Red Star Belgrade", points: 1000, type: "text", accept: ["Red Star", "Crvena zvezda"] }
+    { q: "Which club won the European Cup in 1991 after a penalty shootout against Marseille?", a: "Red Star Belgrade", points: 1000, type: "text", accept: ["Red Star", "Crvena zvezda"] },
+    { q: "Which Romanian club won the 1986 European Cup final on penalties against Barcelona?", a: "Steaua Bucuresti", points: 1000, type: "text", accept: ["Steaua Bucharest", "Steaua"] },
+    { q: "Which player scored Porto's opening goal in the 2004 Champions League final against Monaco?", a: "Carlos Alberto", points: 1000, type: "text" },
+    { q: "Which club did Nottingham Forest beat in the 1980 European Cup final?", a: "Hamburger SV", points: 1000, type: "text", accept: ["Hamburg", "HSV"] }
   ],
   "Cars & Automotive": [
     { q: "What German car brand uses a three-pointed star as its logo?", a: "Mercedes-Benz", points: 200, type: "text", accept: ["Mercedes"] }
@@ -5726,20 +5729,13 @@ Object.keys(ENRICH_ADDITIONS).forEach(cat => {
   function variantQuestion(seed, index) {
     const raw = String(seed.q || '').replace(/\s+/g, ' ').trim();
     const base = raw.replace(/[?!.]\s*$/, '');
-    const lowerBase = base.charAt(0).toLowerCase() + base.slice(1);
     const variants = [
       raw,
       raw.replace(/^This\b/, 'Name this').replace(/^These\b/, 'Name these'),
-      raw.replace(/^This\b/, 'Identify this').replace(/^These\b/, 'Identify these'),
       raw.replace(/^Which\b/, 'Name the').replace(/^What\b/, 'Name the').replace(/^Who\b/, 'Name the person who'),
-      raw.replace(/^Which\b/, 'Identify the').replace(/^What\b/, 'Identify the').replace(/^Who\b/, 'Identify the person who'),
-      raw.replace(/^In which\b/i, 'Name the place where').replace(/^In\b/i, 'Within'),
-      `${base}; name it.`,
-      `${base}; what is the answer?`,
-      `${base}; identify it.`,
-      `Can you name it from this wording: ${lowerBase}?`,
-      `Can you identify it from this wording: ${lowerBase}?`,
-      `${base}; give the answer.`
+      raw.replace(/^In which\b/i, 'Name the place where').replace(/^In\b/i, 'During'),
+      `${base}.`,
+      `${base}?`
     ];
     let next = variants[index % variants.length];
     next = next.replace(/\s+/g, ' ').trim();
