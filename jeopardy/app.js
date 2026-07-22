@@ -926,6 +926,7 @@
     renderScoreboard();
     updateBonusButton();
     document.querySelector('.board-header .game-title').textContent = game.gameName;
+    saveHostSnapshot();
   }
 
   // ---- Adjust modal: fix scores / switch whose turn it is, any time ----
@@ -1072,9 +1073,44 @@
     }
 
     overlay.classList.add('active');
+    saveHostSnapshot();
     // Move keyboard focus into the dialog.
     modal.setAttribute('tabindex', '-1');
     modal.focus();
+  }
+
+  function reportControls() {
+    return `
+      <div class="question-report">
+        <span>Report:</span>
+        <button class="btn btn-secondary btn-mini" onclick="window.app.reportQuestion('too_easy')">Too easy</button>
+        <button class="btn btn-secondary btn-mini" onclick="window.app.reportQuestion('too_hard')">Too hard</button>
+        <button class="btn btn-secondary btn-mini" onclick="window.app.reportQuestion('bad_wording')">Bad wording</button>
+        <button class="btn btn-secondary btn-mini" onclick="window.app.reportQuestion('wrong_answer')">Wrong answer</button>
+      </div>`;
+  }
+
+  function reportQuestion(reason) {
+    const question = game.currentQuestion;
+    if (!question) return;
+    try {
+      const key = 'jeopardy_question_reports_v1';
+      const existing = JSON.parse(localStorage.getItem(key) || '[]');
+      existing.push({
+        reason,
+        category: question.category,
+        points: question.points,
+        q: question.q,
+        a: question.a,
+        type: question.type,
+        reportedAt: new Date().toISOString()
+      });
+      localStorage.setItem(key, JSON.stringify(existing.slice(-500)));
+      showToast('Question report saved', 'success');
+      sound.playClick();
+    } catch (e) {
+      showToast('Could not save report', 'error');
+    }
   }
 
   function renderTextQuestion(question) {
@@ -1105,6 +1141,7 @@
         </div>
         <div id="judge-controls"></div>
       </div>
+      ${reportControls()}
     `;
 
     startQuestionTimer();
@@ -1163,6 +1200,7 @@
         </div>
         <div id="judge-controls"></div>
       </div>
+      ${reportControls()}
     `;
 
     startQuestionTimer();
@@ -1203,6 +1241,7 @@
         </div>
         <div id="judge-controls"></div>
       </div>
+      ${reportControls()}
     `;
 
     startQuestionTimer();
@@ -1249,6 +1288,7 @@
           Start Challenge
         </button>
       </div>
+      ${reportControls()}
     `;
   }
 
@@ -1774,6 +1814,11 @@
     }));
     const comeback = gains.slice().sort((a, b) => b.gain - a.gain)[0];
     const bonusWinner = gains.slice().sort((a, b) => b.bonus - a.bonus)[0];
+    const runnerUp = scoreboard[1];
+    const margin = runnerUp ? Math.abs(winner.score - runnerUp.score) : 0;
+    const questionsPlayed = game.answeredCount || 0;
+    const totalBoard = game.totalCells || 0;
+    const riskiest = game.players.slice().sort((a, b) => Math.abs(b.score) - Math.abs(a.score))[0];
     const recap = document.getElementById('results-recap');
     if (recap) {
       recap.innerHTML = `
@@ -1788,6 +1833,18 @@
         <div class="recap-card">
           <span>Bonus Winner</span>
           <strong>${bonusWinner && bonusWinner.bonus > 0 ? `${escapeHtml(bonusWinner.player.name)} &middot; +$${bonusWinner.bonus}` : 'No bonus winner'}</strong>
+        </div>
+        <div class="recap-card">
+          <span>Winning Margin</span>
+          <strong>${runnerUp ? `$${margin}` : 'Solo win'}</strong>
+        </div>
+        <div class="recap-card">
+          <span>Board Cleared</span>
+          <strong>${questionsPlayed}/${totalBoard}</strong>
+        </div>
+        <div class="recap-card">
+          <span>Biggest Swing</span>
+          <strong>${riskiest ? `${escapeHtml(riskiest.name)} &middot; $${Math.abs(riskiest.score)}` : 'None'}</strong>
         </div>
       `;
     }
@@ -2055,6 +2112,55 @@
     if (input) input.value = link;
     if (hint) hint.textContent = '';
     document.getElementById('share-overlay').classList.add('active');
+    sound.playClick();
+  }
+
+  function buildHostSnapshot() {
+    const board = {};
+    if (game && game.categories) {
+      game.categories.forEach(cat => {
+        board[cat] = (game.board[cat] || []).map(q => ({
+          points: q.points,
+          q: q.q,
+          a: q.a,
+          type: q.type,
+          image: q.image,
+          emoji: q.emoji,
+          audio: q.audio
+        }));
+      });
+    }
+    return {
+      gameName: game ? game.gameName : '',
+      savedAt: new Date().toISOString(),
+      currentQuestion: game ? game.currentQuestion : null,
+      categories: game ? game.categories : [],
+      board,
+      feud: typeof FAMILY_FEUD !== 'undefined' ? FAMILY_FEUD : []
+    };
+  }
+
+  function saveHostSnapshot() {
+    try {
+      if (typeof localStorage === 'undefined' || !game) return;
+      localStorage.setItem('jeopardy_host_snapshot_v1', JSON.stringify(buildHostSnapshot()));
+    } catch (e) {}
+  }
+
+  function openHostAnswers() {
+    saveHostSnapshot();
+    const url = 'host-console.html?local=1';
+    try {
+      window.open(url, '_blank', 'noopener');
+    } catch (e) {
+      location.href = url;
+    }
+  }
+
+  function resetQuestionMemory() {
+    if (!confirm('Clear seen-question memory for future game nights? Current board stays the same.')) return;
+    if (typeof clearSeenQuestions === 'function') clearSeenQuestions();
+    showToast('Question memory cleared', 'success');
     sound.playClick();
   }
 
@@ -3239,6 +3345,9 @@
     shareCurrentGame,
     copyShareLink,
     closeShare,
+    openHostAnswers,
+    resetQuestionMemory,
+    reportQuestion,
     beginAfterReveal,
     openAdjust,
     closeAdjust,

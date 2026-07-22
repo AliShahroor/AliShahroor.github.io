@@ -12,6 +12,10 @@
     .host-answer { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .host-answer:last-child { border-bottom: 0; }
     .host-link { word-break: break-all; color: var(--gold); }
+    .host-board { display: grid; gap: 10px; }
+    .host-cell { padding: 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; background: rgba(0,0,0,.22); }
+    .host-cell strong { color: var(--gold); }
+    .host-cell small { display: block; color: rgba(255,255,255,.55); margin-bottom: 4px; }
   </style>
 </head>
 <body>
@@ -34,8 +38,10 @@
     </div>
   </main>
 
+  <script src="jeopardy-extra.js?v=20260722-1"></script>
   <script>
     const params = new URLSearchParams(location.search);
+    const localMode = params.get('local') === '1';
     let roomId = params.get('room') || '';
     let hostToken = params.get('token') || '';
     let prompts = [];
@@ -61,6 +67,69 @@
           </div>
         `).join('')}
       `;
+    }
+
+    function renderLocalHost() {
+      const roomPanel = document.getElementById('room-panel');
+      const select = document.getElementById('prompt-select');
+      const panel = document.getElementById('answer-panel');
+      const snapshot = JSON.parse(localStorage.getItem('jeopardy_host_snapshot_v1') || '{}');
+      const reports = JSON.parse(localStorage.getItem('jeopardy_question_reports_v1') || '[]').slice(-25).reverse();
+      const feud = snapshot.feud || (typeof FAMILY_FEUD !== 'undefined' ? FAMILY_FEUD : []);
+      if (roomPanel) roomPanel.innerHTML = '<p class="bonus-desc">Private host-only panel for this browser. Keep this tab on the host device.</p>';
+      if (select) {
+        select.innerHTML = feud.map((f, i) => `<option value="${i}">${f.prompt.replace('We asked 100 people: ', '')}</option>`).join('');
+        select.onchange = () => renderLocalFeud(Number(select.value), feud);
+      }
+      const boardHtml = Object.keys(snapshot.board || {}).map(cat => `
+        <div class="host-panel">
+          <h3>${cat}</h3>
+          <div class="host-board">
+            ${(snapshot.board[cat] || []).map(q => `
+              <div class="host-cell">
+                <small>$${q.points} &middot; ${q.type}</small>
+                ${q.q}<br>
+                <strong>${q.a || '(host counted)'}</strong>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+      panel.innerHTML = `
+        <p class="bonus-feud-q">${snapshot.gameName || 'Current game'} answer key</p>
+        ${snapshot.currentQuestion ? `<div class="host-cell"><small>Current question</small>${snapshot.currentQuestion.q}<br><strong>${snapshot.currentQuestion.a || '(host counted)'}</strong></div>` : ''}
+        ${boardHtml || '<p class="bonus-desc">Start or open a game, then tap Host Answers again.</p>'}
+        <div class="host-panel">
+          <h3>Recent Question Reports</h3>
+          ${reports.length ? reports.map(r => `
+            <div class="host-cell">
+              <small>${r.reason.replace(/_/g, ' ')} &middot; ${r.category} &middot; $${r.points}</small>
+              ${r.q}<br><strong>${r.a || '(none)'}</strong>
+            </div>
+          `).join('') : '<p class="bonus-desc">No reports saved yet.</p>'}
+        </div>
+      `;
+      renderLocalFeud(0, feud);
+    }
+
+    function renderLocalFeud(index, feud) {
+      const data = feud[index];
+      if (!data) return;
+      const existing = document.getElementById('local-feud-panel');
+      if (existing) existing.remove();
+      const node = document.createElement('div');
+      node.className = 'host-panel';
+      node.id = 'local-feud-panel';
+      node.innerHTML = `
+        <p class="bonus-feud-q">${data.prompt}</p>
+        ${data.answers.map((answer, i) => `
+          <div class="host-answer">
+            <strong>${i + 1}. ${answer}</strong>
+            <span>$${700 - (i * 100)}</span>
+          </div>
+        `).join('')}
+      `;
+      document.querySelector('.host-console').appendChild(node);
     }
 
     async function refreshHost() {
@@ -97,9 +166,13 @@
       renderAnswers(data);
     });
 
-    loadPrompts().catch(err => {
-      document.getElementById('answer-panel').innerHTML = `<p class="bonus-desc">${err.message}</p>`;
-    });
+    if (localMode) {
+      renderLocalHost();
+    } else {
+      loadPrompts().catch(err => {
+        document.getElementById('answer-panel').innerHTML = `<p class="bonus-desc">${err.message}</p>`;
+      });
+    }
   </script>
 </body>
 </html>

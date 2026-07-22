@@ -302,11 +302,43 @@ function normalizeAnswer(s) {
   return String(s == null ? '' : s)
     .toLowerCase()
     .normalize('NFD').replace(/[̀-ͯ]/g, '') // strip accents
+    .replace(/[\u064B-\u065F\u0670]/g, '') // strip Arabic diacritics
+    .replace(/قطر/g, ' qatar ')
+    .replace(/مصر/g, ' egypt ')
+    .replace(/السعودية|السعوديه/g, ' saudi arabia ')
+    .replace(/الإمارات|الامارات/g, ' united arab emirates ')
+    .replace(/فلسطين/g, ' palestine ')
+    .replace(/لبنان/g, ' lebanon ')
+    .replace(/الأردن|الاردن/g, ' jordan ')
+    .replace(/سوريا/g, ' syria ')
+    .replace(/العراق/g, ' iraq ')
+    .replace(/المغرب/g, ' morocco ')
     .replace(/&/g, ' and ')
+    .replace(/\+/g, ' plus ')
     .replace(/[^a-z0-9 ]/g, ' ')
     .replace(/\b(the|a|an)\b/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+function singularizeAnswer(s) {
+  return normalizeAnswer(s)
+    .split(' ')
+    .map(w => {
+      if (w.length > 4 && w.endsWith('ies')) return w.slice(0, -3) + 'y';
+      if (w.length > 4 && w.endsWith('es')) return w.slice(0, -2);
+      if (w.length > 3 && w.endsWith('s')) return w.slice(0, -1);
+      return w;
+    })
+    .join(' ');
+}
+
+function acronymFor(s) {
+  return normalizeAnswer(s)
+    .split(' ')
+    .filter(w => !['and', 'of', 'for', 'in', 'to'].includes(w))
+    .map(w => w[0])
+    .join('');
 }
 
 function levenshtein(a, b) {
@@ -345,7 +377,25 @@ const ANSWER_SYNONYM_GROUPS = [
   ['cilantro', 'coriander'],
   ['apartment', 'flat'],
   ['gas', 'petrol', 'fuel'],
-  ['vacation', 'holiday']
+  ['vacation', 'holiday'],
+  ['chips', 'crisps'],
+  ['cookie', 'biscuit'],
+  ['cilantro', 'coriander'],
+  ['cart', 'trolley'],
+  ['line', 'queue'],
+  ['soccer', 'football', 'futbol'],
+  ['qatar', ' قطر'],
+  ['egypt', 'misr'],
+  ['saudi arabia', 'ksa', 'saudia'],
+  ['united arab emirates', 'uae', 'emirates'],
+  ['united states', 'usa', 'us', 'america'],
+  ['united kingdom', 'uk', 'britain', 'great britain'],
+  ['palestine', 'falasteen'],
+  ['lebanon', 'lubnan'],
+  ['jordan', 'urdun'],
+  ['syria', 'suria'],
+  ['iraq', 'iraq'],
+  ['morocco', 'maghreb']
 ].map(group => group.map(normalizeAnswer));
 
 function synonymGroupFor(value) {
@@ -363,8 +413,13 @@ function fuzzyAnswerMatch(input, correct, accept) {
   const candidates = [correct].concat(accept || []).map(normalizeAnswer).filter(Boolean);
   for (const c of candidates) {
     if (ni === c) return true;
+    if (singularizeAnswer(ni) === singularizeAnswer(c)) return true;
     if (inputSynonyms && inputSynonyms.includes(c)) return true;
+    const candidateSynonyms = synonymGroupFor(c);
+    if (candidateSynonyms && candidateSynonyms.includes(ni)) return true;
+    if (ni === acronymFor(c) || acronymFor(ni) === c) return true;
     if (ni.replace(/ /g, '') === c.replace(/ /g, '')) return true; // spacing
+    if (c.length >= 8 && ni.length >= 4 && (c.includes(ni) || ni.includes(c))) return true;
     const tol = c.length >= 8 ? 2 : (c.length >= 5 ? 1 : 0);
     if (tol && levenshtein(ni, c) <= tol) return true;
   }

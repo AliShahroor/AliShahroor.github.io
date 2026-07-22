@@ -1558,6 +1558,22 @@ textarea.input-field {
   color: var(--gold);
 }
 
+.btn-mini {
+  padding: 5px 9px;
+  font-size: 0.72rem;
+}
+
+.question-report {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: -12px 0 18px;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.78rem;
+}
+
 .result-player-row {
   display: flex;
   align-items: center;

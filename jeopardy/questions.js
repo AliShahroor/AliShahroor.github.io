@@ -638,7 +638,8 @@ const ACTIVE_CATEGORIES = [
   // Curated, direct-question themes (clean, well-known, randomized)
   'General Knowledge', 'Arab World', 'Sports', 'History', 'Geography', 'Movies & TV', 'Music & Songs',
   'Science', 'Animals & Nature', 'Food & Drink', 'Famous People', 'Technology & Inventions',
-  'Space & Astronomy', 'Art & Literature', 'Pop Culture', 'Famous Landmarks', 'Media Mix',
+  'Space & Astronomy', 'Art & Literature', 'Pop Culture', 'Famous Landmarks',
+  'Media Mix', 'Guess the Landmark', 'Sounds & Songs', 'World Images',
   // Bonus curated genres
   'Video Games', 'Anime & Manga', 'Superheroes', 'Football (Soccer)',
   'Cars & Automotive', 'Internet Culture', 'Mythology', 'World Religions', 'Flags of the World',
@@ -818,10 +819,20 @@ function rememberSeenQuestion(question) {
     if (!key) return;
     const seen = getSeenQuestions();
     seen.add(key);
-    localStorage.setItem(SEEN_QUESTION_KEY, JSON.stringify(Array.from(seen).slice(-2500)));
+    localStorage.setItem(SEEN_QUESTION_KEY, JSON.stringify(Array.from(seen).slice(-5000)));
   } catch (e) {
     // Storage can fail in private browsing; the game should continue normally.
   }
+}
+
+function clearSeenQuestions() {
+  try {
+    if (typeof localStorage !== 'undefined') localStorage.removeItem(SEEN_QUESTION_KEY);
+  } catch (e) {}
+}
+
+function seenQuestionCount() {
+  return getSeenQuestions().size;
 }
 
 // Helper to get a random question from a category at a point value
